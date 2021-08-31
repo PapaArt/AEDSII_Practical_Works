@@ -83,7 +83,7 @@ tipoArvore insere(tipoChave k, tipoArvore* t)
             else p = p->NO.NInterno.esq;
         }
         i = 1;
-        while ((i <= 8) & (bit((int)i, k) == bit((int)i, p->NO.chave)))
+        while ((i <= 8) && (bit((int)i, k) == bit((int)i, p->NO.chave)))
             i++;
         if (i > 8)
         { printf("Erro: chave ja esta na arvore\n"); return (*t);}
