@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#ifndef TADPAT_H
+#define TADPAT_H
 
 typedef unsigned char tipoChave;
 typedef unsigned char tipoIndexAmp;
@@ -32,3 +34,5 @@ short EExterno(tipoArvore p);
 void pesquisa(tipoChave k, tipoArvore t);
 tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i);
 tipoArvore insere(tipoChave k, tipoArvore* t);
+
+#endif
