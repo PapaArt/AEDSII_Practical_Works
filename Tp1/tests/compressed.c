@@ -1,46 +1,53 @@
 #include "compressed.h"
 
-int criaNo(compressedNode* raiz)
-{ raiz = NULL; }
-
-int estaVazio(compressedNode* raiz)
-{ return raiz == NULL; }
-
-void fazVazio(compressedNode* raiz)
-{ raiz = NULL; }
-
-int search(compressedNode* raiz, int k)
+int criaNo(compressedNode *raiz)
 {
-    int numeroBits = (int)(log10(k) / log10(2)) + 1;
+    raiz = NULL;
+}
+
+int estaVazio(compressedNode *raiz)
+{
+    return raiz == NULL;
+}
+
+void fazVazio(compressedNode *raiz)
+{
+    raiz = NULL;
+}
+
+int search(compressedNode *raiz, char k[MAX])
+{
+    int numeroBits = (int)(log10(k[MAX]) / log10(2)) + 1;
     if (numeroBits > 10)
     {
         printf("Erro: numero muito grande");
         return 1; // Retorna falso
     }
 
-    compressedNode* nodepesquisa = search(&raiz, k);
+    compressedNode *nodepesquisa = search(raiz, k);
 
     if (nodepesquisa->data == k)
         return 0; //Retorna verdadeiro
-    else return 1; //Retorna falso
+    else
+        return 1; //Retorna falso
 }
 
-treeType insert(compressedNode* t, int palavra)
+treeType insert(compressedNode *t, char palavra[MAX])
 {
-    compressedNode* atual, *pai;
-    compressedNode* ultimoNo; 
-    compressedNode* novoNo;
+    compressedNode *atual, *pai;
+    compressedNode *ultimoNo;
+    compressedNode *novoNo;
     int i;
 
     // Se o no esta vazio
     if (t == NULL)
     {
-        criaNo(&t);
+        criaNo(t);
         t->bitNumber = 0;
-        t->data = palavra;
+        strcpy(palavra, t->data);
         t->filhoesq = t;
         t->filhodir = NULL;
-        return t; 
+        return t;
     }
 
     // Pesquisa pela palavra
@@ -52,26 +59,26 @@ treeType insert(compressedNode* t, int palavra)
         printf("Erro: chave já esta presente\n");
         return t;
     }
-    
+
     for (i = 1; bit(i, palavra) == bit(i, ultimoNo->data); i++)
 
-    atual = t->filhoesq;
+        atual = t->filhoesq;
     pai = t;
     while (atual->bitNumber > pai->bitNumber && atual->bitNumber < i)
     {
         pai = atual;
         atual = (bit(atual->bitNumber, palavra)) ? atual->filhodir : atual->filhoesq;
     }
-    
-    criaNo(&novoNo);
+
+    criaNo(novoNo);
     novoNo->bitNumber = i;
-    novoNo->data = palavra;
+    strcpy(palavra, t->data);
     novoNo->filhoesq = bit(i, palavra) ? atual : novoNo;
     novoNo->filhodir = bit(i, palavra) ? novoNo : atual;
-    
+
     if (atual == pai->filhoesq)
         pai->filhoesq = novoNo;
-    else 
+    else
         pai->filhodir = novoNo;
 
     return t;

@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#define MAX 100
 #ifndef TADPAT_H
 #define TADPAT_H
 
