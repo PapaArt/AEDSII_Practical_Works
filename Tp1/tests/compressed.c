@@ -1,19 +1,14 @@
 #include "compressed.h"
 
-int criaNo(compressedNode *raiz)
-{
-    raiz = NULL;
-}
+// int estaVazio(compressedNode *raiz)
+// {
+//     return raiz == NULL;
+// }
 
-int estaVazio(compressedNode *raiz)
-{
-    return raiz == NULL;
-}
-
-void fazVazio(compressedNode *raiz)
-{
-    raiz = NULL;
-}
+// void fazVazio(compressedNode *raiz)
+// {
+//     raiz = NULL;
+// }
 
 int search(compressedNode *raiz, char k[MAX])
 {
