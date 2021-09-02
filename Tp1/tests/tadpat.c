@@ -2,15 +2,15 @@
 
 tipoDib bit(tipoIndexAmp i, tipoChave k)
 {
-    int c, j;
+    int j,tamanho,resultado = 0;
+    tamanho=strlen(k);
     if (i == 0)
     return 0;
     else
     {
-        c = k;
-        for (j = 0; j < 8 - i; j++) c /= 2;
-        return (c & 1);
+        for (j = 0; j < tamanho; j++) resultado += (int)(k[j]);
     }
+    return resultado;
 }
 
 short EExterno(tipoArvore p)
@@ -26,7 +26,8 @@ tipoArvore CriaNoInt(int i, tipoArvore* esq, tipoArvore* dir)
     p->NO.NInterno.dir = *dir; p->NO.NInterno.indice = i; return p;
 }
 
-tipoArvore CriaNoExt(tipoChave k)
+tipoArvore 
+CriaNoExt(tipoChave k)
 {
     tipoArvore p;
     p = (tipoArvore)malloc(sizeof(tipoPatNo));
@@ -78,15 +79,14 @@ tipoArvore insere(tipoChave k, tipoArvore* t)
         p = *t;
         while (!EExterno(p))
         {
-            if (bit(p->NO.NInterno.indice, k) == 1)
+            if (bit(p->NO.NInterno.indice, k) > 1)
             p = p->NO.NInterno.dir;
             else p = p->NO.NInterno.esq;
         }
         i = 1;
-        while ((i <= 8) && (bit((int)i, k) == bit((int)i, p->NO.chave)))
-            i++;
-        if (i > 8)
+        if (bit(i, k) == bit(i, p->NO.chave))
         { printf("Erro: chave ja esta na arvore\n"); return (*t);}
         else return (insereEntre(k, t, i));
+        i++;
     }
 }

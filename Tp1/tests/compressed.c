@@ -23,8 +23,9 @@ int search(compressedNode *raiz, char k[MAX])
         printf("Erro: numero muito grande");
         return 1; // Retorna falso
     }
+    compressedNode *nodepesquisa;
 
-    compressedNode *nodepesquisa = search(raiz, k);
+    search(raiz, k);
 
     if (nodepesquisa->data == k)
         return 0; //Retorna verdadeiro
@@ -37,21 +38,21 @@ treeType insert(compressedNode *t, char palavra[MAX])
     compressedNode *atual, *pai;
     compressedNode *ultimoNo;
     compressedNode *novoNo;
+    tipoChave palavraC;
     int i;
-
+    novoNo = (treeType) malloc (sizeof(compressedNode));
     // Se o no esta vazio
     if (t == NULL)
     {
         criaNo(t);
         t->bitNumber = 0;
-        strcpy(palavra, t->data);
+        strcpy(t->data,palavra);
         t->filhoesq = t;
         t->filhodir = NULL;
         return t;
     }
-
     // Pesquisa pela palavra
-    ultimoNo = search(t, palavra);
+    search(t, palavra);
 
     // Se a chave já estiver presente
     if (palavra == ultimoNo->data)
@@ -59,8 +60,8 @@ treeType insert(compressedNode *t, char palavra[MAX])
         printf("Erro: chave já esta presente\n");
         return t;
     }
-
-    for (i = 1; bit(i, palavra) == bit(i, ultimoNo->data); i++)
+    strcpy(palavraC,palavra);
+    for (i = 1; bit(i, palavraC) == bit(i, ultimoNo->data); i++)
 
         atual = t->filhoesq;
     pai = t;

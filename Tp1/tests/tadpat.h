@@ -6,7 +6,8 @@
 #ifndef TADPAT_H
 #define TADPAT_H
 
-typedef unsigned char tipoChave;
+typedef unsigned char* tipoChave;
+typedef unsigned char tipoChave2[MAX];
 typedef unsigned char tipoIndexAmp;
 typedef unsigned char tipoDib;
 
