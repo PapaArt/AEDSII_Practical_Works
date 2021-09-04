@@ -3,7 +3,6 @@
 int main()
 {
     tipoArvore teste = NULL;
-    tipoChave2 c;
     teste = insere("facebook",&teste);
     teste = insere("casa",&teste);
     // insert(teste, "face");

@@ -7,8 +7,8 @@
 #define TADPAT_H
 
 typedef unsigned char* tipoChave;
-typedef unsigned char tipoChave2[MAX];
-typedef unsigned char tipoIndexAmp;
+// typedef unsigned char tipoChave2[MAX];
+typedef unsigned int tipoIndexAmp;
 typedef unsigned char tipoDib;
 
 typedef enum{

@@ -1,16 +1,28 @@
 #include "tadpat.h"
 
-tipoDib bit(tipoIndexAmp i, tipoChave k)
+// tipoDib bit(tipoIndexAmp i, tipoChave k)
+// {
+//     int j,tamanho,resultado = 0;
+//     tamanho=strlen(k);
+//     if (i == 0)
+//     return 0;
+//     else
+//     {
+//         for (j = 0; j < tamanho; j++) resultado += (int)(k[j]);
+//     }
+//     return resultado;
+// }
+int Comp(tipoChave a,tipoChave b)
 {
-    int j,tamanho,resultado = 0;
-    tamanho=strlen(k);
-    if (i == 0)
-    return 0;
-    else
-    {
-        for (j = 0; j < tamanho; j++) resultado += (int)(k[j]);
+    int tamanho, i,count;
+    count=0;
+    if (strlen(a)>strlen(b)) tamanho=strlen(a);
+    else tamanho = strlen(b);
+    for(i=0; i<tamanho; i++){
+        if(a[i] != b[i]) return i;
+        else count ++;
     }
-    return resultado;
+    if (count == tamanho) return count;
 }
 
 short EExterno(tipoArvore p)
@@ -83,8 +95,8 @@ tipoArvore insere(tipoChave k, tipoArvore* t)
             p = p->NO.NInterno.dir;
             else p = p->NO.NInterno.esq;
         }
-        i = 1;
-        if (bit(i, k) == bit(i, p->NO.chave))
+        i = Comp(p->NO.chave,k);
+        if ( i == strlen(k))
         { printf("Erro: chave ja esta na arvore\n"); return (*t);}
         else return (insereEntre(k, t, i));
         i++;
