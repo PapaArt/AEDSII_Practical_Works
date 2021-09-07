@@ -24,12 +24,13 @@ typedef struct tipoPatNo{
         {
             tipoIndexAmp indice;
             tipoArvore esq, dir;
+            tipoDib desvio;
         }NInterno;
         tipoChave chave;
+        int cont;
     }NO;
 }tipoPatNo;
 
-tipoDib bit(tipoIndexAmp i, tipoChave k);
 tipoArvore CriaNoInt(int x, tipoArvore* esq, tipoArvore* dir);
 tipoArvore CriaNoExt(tipoChave k);
 short EExterno(tipoArvore p);
@@ -37,5 +38,6 @@ void pesquisa(tipoChave k, tipoArvore t);
 tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i);
 tipoArvore insere(tipoChave k, tipoArvore* t);
 int diferenca(tipoChave k, tipoChave r);
+int comp();
 
 #endif
