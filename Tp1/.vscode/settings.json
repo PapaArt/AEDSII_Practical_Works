@@ -2,5 +2,6 @@
     "files.associations": {
         "compressed.h": "c",
         "tadpat.h": "c"
-    }
+    },
+    "editor.fontSize": 14
 }

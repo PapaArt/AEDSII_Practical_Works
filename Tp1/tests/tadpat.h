@@ -36,5 +36,6 @@ short EExterno(tipoArvore p);
 void pesquisa(tipoChave k, tipoArvore t);
 tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i);
 tipoArvore insere(tipoChave k, tipoArvore* t);
+int diferenca(tipoChave k, tipoChave r);
 
 #endif
