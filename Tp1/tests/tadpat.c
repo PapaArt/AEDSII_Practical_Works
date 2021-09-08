@@ -64,8 +64,6 @@ void pesquisa(tipoChave k, tipoArvore t)
 {
     if (EExterno(t))
     {
-        printf("%s\n%s\n", k, t->NO.chave);
-        printf("%d\n", strcmp(k,t->NO.chave)); 
         if (!strcmp(k,t->NO.chave))
         printf("Elemento encontrado\n");
         else printf("Elemento nao encontrado\n");
