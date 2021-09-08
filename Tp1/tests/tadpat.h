@@ -31,11 +31,11 @@ typedef struct tipoPatNo{
     }NO;
 }tipoPatNo;
 
-tipoArvore CriaNoInt(int x, tipoArvore* esq, tipoArvore* dir);
+tipoArvore CriaNoInt(int x, tipoArvore* esq, tipoArvore* dir, char d);
 tipoArvore CriaNoExt(tipoChave k);
 short EExterno(tipoArvore p);
 void pesquisa(tipoChave k, tipoArvore t);
-tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i);
+tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i,char d);
 tipoArvore insere(tipoChave k, tipoArvore* t);
 int diferenca(tipoChave k, tipoChave r);
 int comp();
