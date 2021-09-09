@@ -2,8 +2,6 @@
 #define LEITURATXT_H
 #include "patricia.h"
 
-
-
-char* learqv();
+void learqv(char* palavra);
 
 #endif

@@ -1,12 +1,11 @@
 #include "leituratxt.h"
 
-char* learqv()
+void learqv(char *palavra)
 {
     FILE *arq;
-    char *Linha;
+    char Linha[MAX];
     char *result;
-    char *Str;
-
+    char* Str;
     arq = fopen("../data/arquivo1.txt", "rt");
 
     if (arq == NULL)
@@ -16,19 +15,8 @@ char* learqv()
     while (!feof(arq))
     {
         // Lê uma linha (inclusive com o '\n')
-        result = fgets(Linha, 100, arq);
-        for(int k = 0; k<= strlen(Linha); k++){
-            if(ispunct(Linha[k])){
-                Linha[k] = Linha[k+1];
-            }
-        }
-        Str = strtok(Linha, " ");
-        while (Str != NULL)
-        {
-            Str[0]= tolower(Str[0]);
-            printf("%s \n",Str);
-            Str = strtok(NULL," ");
-        }
+        result = fgets(Linha, MAX, arq);
+        strcpy(palavra, Linha);
     }
     fclose(arq);
 }
