@@ -2,9 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <ctype.h>
 #define MAX 100
-#ifndef TADPAT_H
-#define TADPAT_H
+#ifndef PATRICIA_H
+#define PATRICIA_H
 
 typedef unsigned char* tipoChave;
 // typedef unsigned char tipoChave2[MAX];
@@ -38,6 +39,5 @@ void pesquisa(tipoChave k, tipoArvore t);
 tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i,char d);
 tipoArvore insere(tipoChave k, tipoArvore* t);
 int diferenca(tipoChave k, tipoChave r);
-int comp();
 
 #endif

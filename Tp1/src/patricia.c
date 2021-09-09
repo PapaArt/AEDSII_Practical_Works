@@ -1,29 +1,4 @@
-#include "tadpat.h"
-
-// tipoDib bit(tipoIndexAmp i, tipoChave k)
-// {
-//     int j,tamanho,resultado = 0;
-//     tamanho=strlen(k);
-//     if (i == 0)
-//     return 0;
-//     else
-//     {
-//         for (j = 0; j < tamanho; j++) resultado += (int)(k[j]);
-//     }
-//     return resultado;
-// }
-// int Comp(tipoChave a,tipoChave b)
-// {
-//     int tamanho, i,count;
-//     count=0;
-//     if (strlen(a)>strlen(b)) tamanho=strlen(a);
-//     else tamanho = strlen(b);
-//     for(i=0; i<tamanho; i++){
-//         if(a[i] != b[i]) return i;
-//         else count ++;
-//     }
-//     if (count == tamanho) return count;
-// }
+#include "patricia.h"
 
 int diferenca(tipoChave k, tipoChave r)
 {
@@ -80,6 +55,7 @@ void pesquisa(tipoChave k, tipoArvore t)
 tipoArvore insereEntre(tipoChave k, tipoArvore* t, int i,char d)
 {
     tipoArvore p;
+    int dif;
     if (EExterno(*t))
     {
         p = CriaNoExt(k);

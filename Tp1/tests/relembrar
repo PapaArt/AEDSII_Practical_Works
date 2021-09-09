@@ -1,2 +1,1 @@
-comparando a proxima string a ser inserida com a anterior e retornando a posição onde elas sao diferentes
-ou o tamanho total da string (no caso de serem iguais)
+Fazer a ordenação correta da PATRICIA no momento da inserção
