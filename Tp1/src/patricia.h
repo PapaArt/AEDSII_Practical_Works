@@ -30,6 +30,7 @@ typedef struct tipoPatNo
             tipoArvore esq, dir;
             tipoDib desvio;
         } NInterno;
+        int id;
         tipoChave chave;
     } NO;
 } tipoPatNo;

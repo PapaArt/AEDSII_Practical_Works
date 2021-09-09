@@ -31,13 +31,13 @@ int main()
     // teste = insere("tambem", &teste);
     // teste = insere("apartamento", &teste);
 
-    pesquisa("ninguem", teste);
-    pesquisa("em", teste);
-    pesquisa("casa", teste);
-    pesquisa("todos", teste);
-    pesquisa("sairam", teste);
-    pesquisa("quer", teste);
-    pesquisa("entrar", teste);
     pesquisa("quem", teste);
+    pesquisa("casa", teste);
+    pesquisa("quer", teste);
+    pesquisa("porem", teste);
+    pesquisa("ninguem", teste);
+    pesquisa("tambem", teste);
+    pesquisa("apartamento", teste);
+    
     return 0;
 }

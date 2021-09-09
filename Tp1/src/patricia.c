@@ -104,7 +104,7 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
         i = strcmp(k, p->NO.chave);
         if (i == 0)
         {
-            printf("Erro: chave ja esta na arvore: %s\n", k);
+            printf("Chave ja esta na arvore: %s\n", k);
             return (*t);
         }
         else{
@@ -113,6 +113,5 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
             else d= p->NO.chave[i];
             return (insereEntre(k, t, i, d));
         }
-
     }
 }
