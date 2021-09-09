@@ -27,7 +27,7 @@ char* learqv()
         while (Str != NULL)
         {
             Str[0]= tolower(Str[0]);
-            return Str;
+            printf("%s \n",Str);
             Str = strtok(NULL," ");
         }
         i++;
