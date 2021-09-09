@@ -108,7 +108,7 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
             d = p->NO.chave[i];
         if (i == strlen(k))
         {
-            printf("Erro: chave ja esta na arvore\n");
+            printf("Erro: chave ja esta na arvore: %s\n", k);
             return (*t);
         }
         else
