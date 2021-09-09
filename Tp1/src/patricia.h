@@ -31,7 +31,6 @@ typedef struct tipoPatNo
             tipoDib desvio;
         } NInterno;
         tipoChave chave;
-        int cont;
     } NO;
 } tipoPatNo;
 
