@@ -23,6 +23,7 @@ tipoArvore CriaNoInt(int i, tipoArvore *esq, tipoArvore *dir, char d)
 {
     tipoArvore p;
     p = (tipoArvore)malloc(sizeof(tipoPatNo));
+    p->conta = 0;
     p->nt = interno;
     p->NO.NInterno.esq = *esq;
     p->NO.NInterno.dir = *dir;
@@ -36,6 +37,7 @@ CriaNoExt(tipoChave k)
 {
     tipoArvore p;
     p = (tipoArvore)malloc(sizeof(tipoPatNo));
+    p->conta = 1;
     p->nt = externo;
     p->NO.chave = k;
     return p;
@@ -104,7 +106,7 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
         i = strcmp(k, p->NO.chave);
         if (i == 0)
         {
-            printf("Erro: chave ja esta na arvore: %s\n", k);
+            p->conta+=1;
             return (*t);
         }
         else{
