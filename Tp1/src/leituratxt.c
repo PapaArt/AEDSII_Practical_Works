@@ -3,7 +3,7 @@
 char* learqv()
 {
     FILE *arq;
-    char Linha[100];
+    char *Linha;
     char *result;
     char *Str;
 
@@ -13,7 +13,6 @@ char* learqv()
     {
         printf("Problemas na CRIACAO do arquivo\n");
     }
-    int i = 1;
     while (!feof(arq))
     {
         // Lê uma linha (inclusive com o '\n')
@@ -30,7 +29,6 @@ char* learqv()
             return Str;
             Str = strtok(NULL," ");
         }
-        i++;
     }
     fclose(arq);
 }

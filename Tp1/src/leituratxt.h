@@ -1,6 +1,8 @@
-#ifndef LEITURATXT_C
-#define LEITURATXT_C
+#ifndef LEITURATXT_H
+#define LEITURATXT_H
 #include "patricia.h"
+
+
 
 char* learqv();
 

@@ -1,5 +1,5 @@
 all:
-	gcc main.c patricia.c -o main
+	gcc main.c patricia.c leituratxt.c -o main
 run:
 	./main
 clean:
