@@ -22,6 +22,7 @@ typedef struct tipoPatNo *tipoArvore;
 typedef struct tipoPatNo
 {
     tipoNo nt;
+    int conta;
     union
     {
         struct
