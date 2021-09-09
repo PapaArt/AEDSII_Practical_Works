@@ -96,23 +96,23 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
         while (!EExterno(p))
         {
             // Posicao do NInterno
-            if (k[p->NO.NInterno.indice] >= 110)
+            if (k[p->NO.NInterno.indice] > p->NO.NInterno.desvio)
                 p = p->NO.NInterno.dir;
             else
                 p = p->NO.NInterno.esq;
         }
-        i = diferenca(k, p->NO.chave);
-        if (k[i] <= p->NO.chave[i])
-            d = k[i];
-        else
-            d = p->NO.chave[i];
-        if (i == strlen(k))
+        i = strcmp(k, p->NO.chave);
+        if (i == 0)
         {
             printf("Erro: chave ja esta na arvore: %s\n", k);
             return (*t);
         }
-        else
+        else{
+            i = diferenca(k,p->NO.chave);
+            if (k[i] <= p->NO.chave[i]) d = k[i];
+            else d= p->NO.chave[i];
             return (insereEntre(k, t, i, d));
-        i++;
+        }
+
     }
 }

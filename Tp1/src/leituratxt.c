@@ -6,7 +6,7 @@ void learqv(char *palavra)
     char Linha[MAX];
     char *result;
     char* Str;
-    arq = fopen("../data/arquivo1.txt", "rt");
+    arq = fopen("../data/arquivo2.txt", "rt");
 
     if (arq == NULL)
     {
