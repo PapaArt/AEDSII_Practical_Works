@@ -107,7 +107,6 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
         if (i == 0)
         {
             p->conta+=1;
-            printf("Chave ja esta na arvore: %s %d\n", k, p->conta);
             return (*t);
         }
         else{

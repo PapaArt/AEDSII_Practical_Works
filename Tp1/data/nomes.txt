@@ -1,0 +1,4 @@
+../data/arquivo1.txt
+../data/arquivo2.txt
+../data/arquivo3.txt
+../data/arquivo4.txt
