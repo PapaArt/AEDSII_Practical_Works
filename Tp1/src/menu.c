@@ -17,7 +17,7 @@ void menu()
     case 1:
         printf("Digite a quantidade de arquivos:\n");
         scanf("%d", &qtd);
-        learqv(str, qtd);
+        leArquivo(qtd, 0);
         for (int k = 0; k <= strlen(str); k++)
         {
             if (ispunct(str[k]))
