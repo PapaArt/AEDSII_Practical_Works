@@ -48,7 +48,10 @@ void pesquisa(tipoChave k, tipoArvore t)
     if (EExterno(t))
     {
         if (!strcmp(k, t->NO.chave))
+        {
+            printf("%s\n",t->NO.chave);
             printf("Elemento encontrado\n");
+        }
         else
             printf("Elemento nao encontrado\n");
         return;
@@ -106,13 +109,16 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
         i = strcmp(k, p->NO.chave);
         if (i == 0)
         {
-            p->conta+=1;
+            p->conta += 1;
             return (*t);
         }
-        else{
-            i = diferenca(k,p->NO.chave);
-            if (k[i] <= p->NO.chave[i]) d = k[i];
-            else d= p->NO.chave[i];
+        else
+        {
+            i = diferenca(k, p->NO.chave);
+            if (k[i] <= p->NO.chave[i])
+                d = k[i];
+            else
+                d = p->NO.chave[i];
             return (insereEntre(k, t, i, d));
         }
     }

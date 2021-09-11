@@ -101,7 +101,7 @@ void leArquivo(int qtd, int contArq, tipoArvore teste)
             }
             fclose(arquivo);
             contArq++;
-            printf("Arquivo lido!!!\n");
+            //printf("Arquivo lido!!!\n");
         }
         else
         {
@@ -110,15 +110,6 @@ void leArquivo(int qtd, int contArq, tipoArvore teste)
         }
         switch (i)
         {
-        case 1:
-            pesquisa("quem", teste);
-            // pesquisa("casa", teste);
-            pesquisa("quer", teste);
-            pesquisa("porem", teste);
-            pesquisa("ninguem", teste);
-            pesquisa("tambem", teste);
-            pesquisa("apartamento", teste);
-            break;
         case 2:
             pesquisa("ninguem", teste);
             pesquisa("em", teste);
@@ -128,6 +119,16 @@ void leArquivo(int qtd, int contArq, tipoArvore teste)
             pesquisa("quer", teste);
             pesquisa("entrar", teste);
             pesquisa("quem", teste);
+            break;
+        case 1:
+            pesquisa("quem", teste);
+            pesquisa("casa", teste);
+            pesquisa("quer", teste);
+            pesquisa("porem", teste);
+            pesquisa("ninguem", teste);
+            pesquisa("tambem", teste);
+            pesquisa("apartamento", teste);
+            break;
         default:
             break;
         }
