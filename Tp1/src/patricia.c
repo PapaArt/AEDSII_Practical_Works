@@ -48,7 +48,6 @@ void pesquisa(tipoChave k, tipoArvore t)
 {
     if (EExterno(t))
     {
-        printf("%s %s\n",k,t->NO.chave);
         if (!strcmp(k, t->NO.chave))
         {
             printf("Palavra e indice invertido: %s <%d,%d>\n", t->NO.chave,t->conta[0],t->conta[1]);
