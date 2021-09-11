@@ -95,19 +95,38 @@ int pesquisaTST(struct Node *raiz, char *word)
 int main()
 {
 	struct Node *raiz = NULL;
+	FILE *archive;
+	char line[MAX];
+	char *result;
 
-	insert(&raiz, "cat");
-	insert(&raiz, "cats");
-	insert(&raiz, "up");
-	insert(&raiz, "bug");
+	archive=fopen("../data/palavras.txt","rt");
 
-	printf("Following is traversal of ternary search tree\n");
-	traverseTST(raiz);
+	if (archive != NULL)
+	{
+		while(!feof(archive))
+		{
+			result = fgets(line,MAX,archive);
+			for (int k = 0; k <= strlen(line); k++)
+            {
+				line[k]=tolower(line[k]);
+			}
+			insert(&raiz, line);
+		}
+	}
+	pesquisaTST(raiz, "em\n")? printf("Found\n"): printf("Not Found\n");
+	fclose(archive);
+	// insert(&raiz, "cat");
+	// insert(&raiz, "cats");
+	// insert(&raiz, "up");
+	// insert(&raiz, "bug");
 
-	printf("\nFollowing are search results for cats, bu and cat respectively\n");
-	pesquisaTST(raiz, "cats")? printf("Found\n"): printf("Not Found\n");
-	pesquisaTST(raiz, "bu")? printf("Found\n"): printf("Not Found\n");
-	pesquisaTST(raiz, "cat")? printf("Found\n"): printf("Not Found\n");
+	// printf("Following is traversal of ternary search tree\n");
+	// traverseTST(raiz);
+
+	// printf("\nFollowing are search results for cats, bu and cat respectively\n");
+	// pesquisaTST(raiz, "cats")? printf("Found\n"): printf("Not Found\n");
+	// pesquisaTST(raiz, "bu")? printf("Found\n"): printf("Not Found\n");
+	// pesquisaTST(raiz, "cat")? printf("Found\n"): printf("Not Found\n");
 
 	return 0;
 }
