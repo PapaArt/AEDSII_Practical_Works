@@ -4,6 +4,6 @@
 
 void learqv(char* palavra, int qtd);
 void criaArquivos(int qtd, int contArq);
-void leArquivo(int qtd, int contArq);
+void leArquivo(int qtd, int contArq, tipoArvore teste);
 
 #endif

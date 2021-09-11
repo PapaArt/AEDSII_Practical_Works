@@ -62,7 +62,7 @@ void criaArquivos(int qtd, int contArq)
     }
 }
 
-void leArquivo(int qtd, int contArq)
+void leArquivo(int qtd, int contArq, tipoArvore teste)
 {
 
     for (int i = 1; i <= qtd; i++)
@@ -94,18 +94,42 @@ void leArquivo(int qtd, int contArq)
                 while (Str != NULL)
                 {
                     Str[0] = tolower(Str[0]);
-                    printf("%s\n", Str);
+                    printf("palavra: %s\n",Str);
+                    teste = insere(Str, &teste);
                     Str = strtok(NULL, " ");
                 }
             }
-            printf("Arquivo lido!!!\n");
             fclose(arquivo);
             contArq++;
+            printf("Arquivo lido!!!\n");
         }
         else
         {
             perror(nomeArq);
             exit(EXIT_FAILURE);
+        }
+        switch (i)
+        {
+        case 1:
+            pesquisa("quem", teste);
+            pesquisa("casa", teste);
+            pesquisa("quer", teste);
+            pesquisa("porem", teste);
+            pesquisa("ninguem", teste);
+            pesquisa("tambem", teste);
+            pesquisa("apartamento", teste);
+            break;
+        case 2:
+            pesquisa("ninguem", teste);
+            pesquisa("em", teste);
+            pesquisa("casa", teste);
+            pesquisa("todos", teste);
+            pesquisa("sairam", teste);
+            pesquisa("quer", teste);
+            pesquisa("entrar", teste);
+            pesquisa("quem", teste);
+        default:
+            break;
         }
     }
 }

@@ -17,28 +17,22 @@ void menu()
     case 1:
         printf("Digite a quantidade de arquivos:\n");
         scanf("%d", &qtd);
-        leArquivo(qtd, 0);
-        for (int k = 0; k <= strlen(str); k++)
-        {
-            if (ispunct(str[k]))
-            {
-                str[k] = str[k + 1];
-            }
-        }
-        plv = strtok(str, " ");
-        while (plv != NULL)
-        {
-            plv[0] = tolower(plv[0]);
-            teste = insere(plv, &teste);
-            plv = strtok(NULL, " ");
-        }
-        pesquisa("quem", teste);
-        pesquisa("casa", teste);
-        pesquisa("quer", teste);
-        pesquisa("porem", teste);
-        pesquisa("ninguem", teste);
-        pesquisa("tambem", teste);
-        pesquisa("apartamento", teste);
+        leArquivo(qtd, 0, teste);
+        // for (int k = 0; k <= strlen(str); k++)
+        // {
+        //     if (ispunct(str[k]))
+        //     {
+        //         str[k] = str[k + 1];
+        //     }
+        // }
+        // plv = strtok(str, " ");
+        // while (plv != NULL)
+        // {
+        //     plv[0] = tolower(plv[0]);
+        //     teste = insere(plv, &teste);
+        //     plv = strtok(NULL, " ");
+        // }
+        
 
     case 2:
         print_menu2();
