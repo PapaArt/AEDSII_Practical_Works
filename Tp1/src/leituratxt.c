@@ -94,7 +94,7 @@ void leArquivo(int qtd, int contArq, tipoArvore teste)
                 while (Str != NULL)
                 {
                     Str[0] = tolower(Str[0]);
-                    teste = insere(Str, &teste);
+                    teste = insere(Str, &teste,i);
                     Str = strtok(NULL, " ");
                 }
             }
@@ -118,7 +118,7 @@ void leArquivo(int qtd, int contArq, tipoArvore teste)
             pesquisa("quer", teste);
             pesquisa("entrar", teste);
             pesquisa("quem", teste);
-            break;
+            break;    
         case 1:
             pesquisa("quem", teste);
             pesquisa("casa", teste);
@@ -128,6 +128,7 @@ void leArquivo(int qtd, int contArq, tipoArvore teste)
             pesquisa("tambem", teste);
             pesquisa("apartamento", teste);
             break;
+        
         default:
             break;
         }
