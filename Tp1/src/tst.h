@@ -1,15 +1,17 @@
 #include "patricia.h"
 
-typedef struct tipoNo* Node;
-typedef struct tipoNo
+struct Node
 {
-    char data;
-    unsigned fimDaPalavra: 1;
-    Node *esq, *dir, *eq;
-}tipoNo;
+	char data;
 
-Node novoNo(char data);
-void insert(Node* raiz, char *word);
-void traverseTSTUtil(Node raiz, char* buffer, int depth);
-void traverseTST(Node raiz);
-int pesquisaTST(Node raiz, char* word);
+	// True if this character is last character of one of the words
+	unsigned isEndOfString: 1;
+
+	struct Node *left, *eq, *right;
+};
+
+struct Node* newNode(char data);
+void insert(struct Node** root, char *word);
+void traverseTSTUtil(struct Node* root, char* buffer, int depth);
+void traverseTST(struct Node* root);
+int searchTST(struct Node *root, char *word);
