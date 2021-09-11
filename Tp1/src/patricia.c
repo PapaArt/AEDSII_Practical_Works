@@ -49,7 +49,7 @@ void pesquisa(tipoChave k, tipoArvore t)
     {
         if (!strcmp(k, t->NO.chave))
         {
-            printf("%s\n",t->NO.chave);
+            printf("%s\n", t->NO.chave);
             printf("Elemento encontrado\n");
         }
         else

@@ -94,7 +94,6 @@ void leArquivo(int qtd, int contArq, tipoArvore teste)
                 while (Str != NULL)
                 {
                     Str[0] = tolower(Str[0]);
-                    //printf("palavra: %s\n",Str);
                     teste = insere(Str, &teste);
                     Str = strtok(NULL, " ");
                 }
