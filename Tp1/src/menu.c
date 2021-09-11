@@ -32,7 +32,7 @@ void menu()
         //     teste = insere(plv, &teste);
         //     plv = strtok(NULL, " ");
         // }
-        
+        break;
 
     case 2:
         print_menu2();
