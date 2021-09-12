@@ -23,10 +23,11 @@ void menu()
             print_menu2();
             scanf("%d", &escolha[1]);
         case 2:
-            // scanf("%d", &escolha[2]);
+            // Inserir palavras do dicionario
             break;
         case 3:
-            //
+            // Imprimir o indice invertido
+            break;
         case 4:
             print_menu2();
             scanf("%d", &escolha[1]);
