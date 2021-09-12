@@ -23,11 +23,10 @@ void menu()
             print_menu2();
             scanf("%d", &escolha[1]);
         case 2:
-            // print_menu2();
             // scanf("%d", &escolha[2]);
             break;
         case 3:
-
+            //
         case 4:
             print_menu2();
             scanf("%d", &escolha[1]);
