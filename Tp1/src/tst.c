@@ -2,7 +2,7 @@
 
 TSTnode novoNo(char data)
 {
-    TSTnode temp = (TSTnode )malloc(sizeof(struct Node));
+    TSTnode temp = (TSTnode)malloc(sizeof(struct Node));
     temp->data = data;
     temp->fimDaPalavra = 0;
     temp->esq = temp->eq = temp->dir = NULL;
@@ -131,26 +131,26 @@ void imprimeTST(TSTnode raiz)
     if (raiz->esq != NULL)
     {
         printf("%c", raiz->data);
-        if (raiz->fimDaPalavra == 0)
-        {
-            imprimeTST(raiz->esq);
-        }
+        // if (raiz->fimDaPalavra == 0)
+        // {
+        imprimeTST(raiz->esq);
+        // }
     }
-    else if (raiz->eq != NULL)
+    if (raiz->eq != NULL)
     {
         printf("%c", raiz->data);
-        if (raiz->fimDaPalavra == 0)
-        {
-            imprimeTST(raiz->eq);
-        }
+        // if (raiz->fimDaPalavra == 0)
+        // {
+        imprimeTST(raiz->eq);
+        // }
     }
-    else if (raiz->dir != NULL)
+    if (raiz->dir != NULL)
     {
         printf("%c", raiz->data);
-        if (raiz->fimDaPalavra == 0)
-        {
-            imprimeTST(raiz->dir);
-        }
+        // if (raiz->fimDaPalavra == 0)
+        // {
+        imprimeTST(raiz->dir);
+        // }
     }
     else
     {

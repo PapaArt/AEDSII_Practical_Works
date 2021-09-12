@@ -64,7 +64,7 @@ LOOP:
     {
     case 1:
         // Imprime palavra TST (TST - NAO FEITO)
-        //imprimeTST();
+        imprimeTST(TSTraiz);
         break;
     case 2:
         //Busca uma plv (PATRICIA - NAO FEITO)
