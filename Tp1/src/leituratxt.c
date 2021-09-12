@@ -71,30 +71,5 @@ void leArquivo(int qtd, int contArq, tipoArvore teste)
             perror(nomeArq);
             exit(EXIT_FAILURE);
         }
-        switch (i)
-        {
-        case 2:
-            pesquisa("ninguem", teste);
-            pesquisa("em", teste);
-            pesquisa("casa", teste);
-            pesquisa("todos", teste);
-            pesquisa("sairam", teste);
-            pesquisa("quer", teste);
-            pesquisa("entrar", teste);
-            pesquisa("quem", teste);
-            break;    
-        case 1:
-            pesquisa("quem", teste);
-            pesquisa("casa", teste);
-            pesquisa("quer", teste);
-            pesquisa("porem", teste);
-            pesquisa("ninguem", teste);
-            pesquisa("tambem", teste);
-            pesquisa("apartamento", teste);
-            break;
-        
-        default:
-            break;
-        }
     }
 }

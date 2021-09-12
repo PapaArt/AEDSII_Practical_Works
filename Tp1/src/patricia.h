@@ -22,7 +22,7 @@ typedef struct tipoPatNo *tipoArvore;
 typedef struct tipoPatNo
 {
     tipoNo nt;
-    int conta[2];
+    int conta[10];
     union
     {
         struct
@@ -39,7 +39,7 @@ typedef struct tipoPatNo
 tipoArvore CriaNoInt(int x, tipoArvore *esq, tipoArvore *dir, char d);
 tipoArvore CriaNoExt(tipoChave k,int nArquivo);
 short EExterno(tipoArvore p);
-void pesquisa(tipoChave k, tipoArvore t);
+int pesquisa(tipoChave k, tipoArvore t,int flag);
 tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i, char d, int nArquivo);
 tipoArvore insere(tipoChave k, tipoArvore *t,int nArquivo);
 int diferenca(tipoChave k, tipoChave r);
