@@ -51,7 +51,7 @@ void traverseTSTUtil(TSTnode raiz, char *buffer, int depth)
         if (raiz->fimDaPalavra)
         {
             buffer[depth + 1] = '\0';
-            printf("%s\n", buffer);
+            printf("%s", buffer);
         }
 
         // Traverse the subtree using equal pointer (middle subtree)
@@ -68,6 +68,7 @@ void traverseTST(TSTnode raiz)
 {
     char buffer[MAX];
     traverseTSTUtil(raiz, buffer, 0);
+    printf("\n");
 }
 
 // Function to search a given word in TST

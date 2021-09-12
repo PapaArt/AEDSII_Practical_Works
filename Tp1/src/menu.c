@@ -63,8 +63,8 @@ LOOP:
     switch (escolha[1])
     {
     case 1:
-        // Imprime palavra TST (TST - NAO FEITO)
-        imprimeTST(TSTraiz);
+        // Imprime palavra TST (TST - FEITO)
+        traverseTST(TSTraiz);
         break;
     case 2:
         //Busca uma plv (PATRICIA - NAO FEITO)
