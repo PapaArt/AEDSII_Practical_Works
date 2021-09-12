@@ -26,7 +26,7 @@ void criaArquivos(int qtd, int contArq)
     }
 }
 
-void leArquivo(int qtd, int contArq, tipoArvore teste)
+void leArquivo(int qtd, int contArq, tipoArvore *teste)
 {
 
     for (int i = 1; i <= qtd; i++)
@@ -58,7 +58,7 @@ void leArquivo(int qtd, int contArq, tipoArvore teste)
                 while (Str != NULL)
                 {
                     Str[0] = tolower(Str[0]);
-                    teste = insere(Str, &teste,i);
+                    *teste = insere(Str, teste,i);
                     Str = strtok(NULL, " ");
                 }
             }

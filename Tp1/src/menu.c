@@ -19,7 +19,7 @@ void menu()
         case 1:
             printf("Digite a quantidade de arquivos:\n");
             scanf("%d", &qtd);
-            leArquivo(qtd, 0, teste);
+            leArquivo(qtd, 0, &teste);
             print_menu2();
             scanf("%d", &escolha[1]);
         case 2:
