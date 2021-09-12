@@ -28,8 +28,8 @@ LOOP:
     case 2:
         // Inserir palavras do dicionario (TST - FEITO)
         printf("Insira a palavra que deseja buscar no dicionário: ");
-        scanf("%s",buscaDicio);
-        strcat(strcpy(buffer,buscaDicio),espaco);
+        scanf("%s", buscaDicio);
+        strcat(strcpy(buffer, buscaDicio), espaco);
         insereDicio(buffer);
         goto LOOP;
         break;

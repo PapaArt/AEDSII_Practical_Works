@@ -81,7 +81,6 @@ int pesquisaTST(struct Node *raiz, char *word)
 
     else if (*word > (raiz)->data)
         return pesquisaTST(raiz->dir, word);
-
     else
     {
         if (*(word + 1) == '\0')
@@ -92,7 +91,8 @@ int pesquisaTST(struct Node *raiz, char *word)
 }
 
 // Driver program to test above functions
-void insereDicio(char *word){
+void insereDicio(char *word)
+{
     struct Node *raiz = NULL;
     FILE *archive;
     char line[MAX];
