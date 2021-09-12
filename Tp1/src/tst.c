@@ -68,7 +68,6 @@ void traverseTST(TSTnode raiz)
 {
     char buffer[MAX];
     traverseTSTUtil(raiz, buffer, 0);
-    printf("\n");
 }
 
 // Function to search a given word in TST
