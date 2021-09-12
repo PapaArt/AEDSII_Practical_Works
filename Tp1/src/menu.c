@@ -51,7 +51,7 @@ void menu()
             printf("Digite o termo para consulta: ");
             scanf("%s",termo);
             N=qtd;
-            dj=pesquisa(termo,teste,1);
+            dj = pesquisa(termo,teste,1);
             fji = pesquisa(termo,teste,2);
             printf("%d",dj);
             break;
