@@ -91,24 +91,6 @@ int pesquisaTST(struct Node *raiz, char *word)
     }
 }
 
-char *removerAcentos(char *texto)
-{
-    char *comAcentos = "áâãéêẽíîóôõúûç";
-    char *semAcentos = "aaaeeeiiooouuc";
-
-    for (int i = 0; i < strlen(comAcentos); i++)
-    {
-        for (int j = 0; j < strlen(texto); j++)
-        {
-            if (texto[j] == comAcentos[i])
-            {
-                texto[j] = semAcentos[i];
-            }
-        }
-    }
-    return texto;
-}
-
 // Driver program to test above functions
 int main()
 {
@@ -136,12 +118,8 @@ int main()
             insert(&raiz, line);
         }
     }
-    pesquisaTST(raiz, "alguem\n") ? printf("Found\n") : printf("Not Found\n");
-    fclose(archive);
-    char *comAcentos = "áâãéêẽíîóôõúûç";
-    char *semAcentos = "aaaeeeiiooouuc";
-    
-    
 
+    pesquisaTST(raiz, "vacilo\n") ? printf("\nFound\n") : printf("\nNot Found\n");
+    fclose(archive);    
     return 0;
 }
