@@ -132,25 +132,16 @@ int main()
                 }
                 line[k] = tolower(line[k]);
             }
-            removerAcentos(line);
             printf("%s", line);
             insert(&raiz, line);
         }
     }
     pesquisaTST(raiz, "alguem\n") ? printf("Found\n") : printf("Not Found\n");
     fclose(archive);
-    // insert(&raiz, "cat");
-    // insert(&raiz, "cats");
-    // insert(&raiz, "up");
-    // insert(&raiz, "bug");
-
-    // printf("Following is traversal of ternary search tree\n");
-    // traverseTST(raiz);
-
-    // printf("\nFollowing are search results for cats, bu and cat respectively\n");
-    // pesquisaTST(raiz, "cats")? printf("Found\n"): printf("Not Found\n");
-    // pesquisaTST(raiz, "bu")? printf("Found\n"): printf("Not Found\n");
-    // pesquisaTST(raiz, "cat")? printf("Found\n"): printf("Not Found\n");
+    char *comAcentos = "áâãéêẽíîóôõúûç";
+    char *semAcentos = "aaaeeeiiooouuc";
+    
+    
 
     return 0;
 }
