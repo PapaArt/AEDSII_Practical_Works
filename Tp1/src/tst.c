@@ -120,6 +120,6 @@ int main()
     }
 
     pesquisaTST(raiz, "vacilo\n") ? printf("\nFound\n") : printf("\nNot Found\n");
-    fclose(archive);    
+    fclose(archive);
     return 0;
 }

@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <ctype.h>
+#include <stdbool.h>
 #define MAX 100
 #ifndef PATRICIA_H
 #define PATRICIA_H
