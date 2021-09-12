@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "compressed.h": "c",
-        "tadpat.h": "c"
+        "tadpat.h": "c",
+        "*.tcc": "cpp"
     },
     "editor.fontSize": 14
 }
