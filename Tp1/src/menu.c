@@ -14,6 +14,7 @@ void menu()
     char espaco[] = "\n";
     int choice = 0;
     tipoArvore teste = NULL;
+    TSTnode TSTraiz = NULL;
 LOOP:
     print_menu1();
     scanf("%d", &escolha[0]);
@@ -37,10 +38,10 @@ LOOP:
                 printf("Digite a palavra a ser buscada: \n");
                 scanf("%s", buscaDicio);
                 strcat(strcpy(buffer, buscaDicio), espaco);
-                insereDicio(buffer, choice);
+                insereDicio(&TSTraiz,buffer, choice);
             }
             if(choice == 0){
-                insereDicio(buffer, choice);
+                insereDicio(&TSTraiz,buffer, choice);
             }
         }else{
             printf("Digite um numero valido.\n");
@@ -63,6 +64,7 @@ LOOP:
     {
     case 1:
         // Imprime palavra TST (TST - NAO FEITO)
+        //imprimeTST();
         break;
     case 2:
         //Busca uma plv (PATRICIA - NAO FEITO)
