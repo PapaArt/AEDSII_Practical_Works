@@ -23,10 +23,10 @@ void menu()
             print_menu2();
             scanf("%d", &escolha[1]);
         case 2:
-            // Inserir palavras do dicionario
+            // Inserir palavras do dicionario (TST - FEITO)
             break;
         case 3:
-            // Imprimir o indice invertido
+            // Imprimir o indice invertido (PATRICIA - NAO FEITO)
             break;
         case 4:
             print_menu2();
@@ -39,15 +39,16 @@ void menu()
         switch (escolha[1])
         {
         case 1:
-            // Imprime palavra TST
+            // Imprime palavra TST (TST - NAO FEITO)
             break;
         case 2:
-            //Busca uma plv
+            //Busca uma plv (PATRICIA - NAO FEITO)
             break;
         case 3:
-            // GTK
+            // GTK (AMBOS - NAO FEITO)
             break;
-        case 4:
+        case 4: // FORMULAS
+            printf("Digite o termo para consulta: ");
             scanf("%s",termo);
             N=qtd;
             dj=pesquisa(termo,teste,1);
