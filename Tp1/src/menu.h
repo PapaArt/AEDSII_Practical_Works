@@ -1,6 +1,7 @@
 #ifndef MENU_h
 #define MENU_h
 #include "leituratxt.h"
+#include "tst.h"
 
 void menu();
 void print_menu1();

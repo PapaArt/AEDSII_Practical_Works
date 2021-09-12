@@ -15,3 +15,4 @@ void insert(struct Node **raiz, char *word);
 void traverseTSTUtil(struct Node *raiz, char *buffer, int depth);
 void traverseTST(struct Node *raiz);
 int pesquisaTST(struct Node *raiz, char *word);
+void insereDicio(char *word);

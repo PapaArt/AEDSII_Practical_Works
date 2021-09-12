@@ -4,60 +4,68 @@ void menu()
 {
     int escolha[3];
     int qtd;
-    int resultadowij,fji,N,dj;
+    int resultadowij, fji, N, dj;
     char str[MAX];
     char *mat[MAX];
     char *plv;
     char *termo;
+    char buffer[MAX];
+    char buscaDicio[100];
+    char espaco[] = "\n";
     tipoArvore teste = NULL;
-    LOOP:
-        print_menu1();
-        scanf("%d", &escolha[0]);
-    
-        switch (escolha[0])
-        {
-        case 1:
-            printf("Digite a quantidade de arquivos:\n");
-            scanf("%d", &qtd);
-            leArquivo(qtd, 0, &teste);
-            print_menu2();
-            scanf("%d", &escolha[1]);
-        case 2:
-            // Inserir palavras do dicionario (TST - FEITO)
-            break;
-        case 3:
-            // Imprimir o indice invertido (PATRICIA - NAO FEITO)
-            break;
-        case 4:
-            print_menu2();
-            scanf("%d", &escolha[1]);
-            break;
-        default:
-            break;
-        }
+LOOP:
+    print_menu1();
+    scanf("%d", &escolha[0]);
 
-        switch (escolha[1])
-        {
-        case 1:
-            // Imprime palavra TST (TST - NAO FEITO)
-            break;
-        case 2:
-            //Busca uma plv (PATRICIA - NAO FEITO)
-            break;
-        case 3:
-            // GTK (AMBOS - NAO FEITO)
-            break;
-        case 4: // FORMULAS
-            printf("Digite o termo para consulta: ");
-            scanf("%s",termo);
-            N=qtd;
-            dj=pesquisa(termo,teste,1);
-            fji = pesquisa(termo,teste,2);
-            printf("%d",dj);
-            break;
-        default:
-            break;
-        }
+    switch (escolha[0])
+    {
+    case 1:
+        printf("Digite a quantidade de arquivos:\n");
+        scanf("%d", &qtd);
+        leArquivo(qtd, 0, &teste);
+        print_menu2();
+        scanf("%d", &escolha[1]);
+    case 2:
+        // Inserir palavras do dicionario (TST - FEITO)
+        printf("Insira a palavra que deseja buscar no dicionário: ");
+        scanf("%s",buscaDicio);
+        strcat(strcpy(buffer,buscaDicio),espaco);
+        insereDicio(buffer);
+        goto LOOP;
+        break;
+    case 3:
+        // Imprimir o indice invertido (PATRICIA - NAO FEITO)
+        break;
+    case 4:
+        print_menu2();
+        scanf("%d", &escolha[1]);
+        break;
+    default:
+        break;
+    }
+
+    switch (escolha[1])
+    {
+    case 1:
+        // Imprime palavra TST (TST - NAO FEITO)
+        break;
+    case 2:
+        //Busca uma plv (PATRICIA - NAO FEITO)
+        break;
+    case 3:
+        // GTK (AMBOS - NAO FEITO)
+        break;
+    case 4: // FORMULAS
+        printf("Digite o termo para consulta: ");
+        scanf("%s", termo);
+        N = qtd;
+        dj = pesquisa(termo, teste, 1);
+        fji = pesquisa(termo, teste, 2);
+        printf("%d", dj);
+        break;
+    default:
+        break;
+    }
 }
 
 void print_menu2()
