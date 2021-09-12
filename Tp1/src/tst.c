@@ -157,3 +157,101 @@ void imprimeTST(TSTnode raiz)
         printf("%c", raiz->data);
     }
 }
+bool isLastNode(TSTnode root)
+{
+	for (int i = 0; i < ALPHABET_SIZE; i++)
+		if (root->children[i])
+			return 0;
+	return 1;
+}
+
+void suggestionsRec(TSTnode root, char currPrefix[])
+{
+    // found a string in Trie with the given prefix
+	if (root->fimDaPalavra)
+	{
+		//printf("\n\n");
+		puts(currPrefix);
+		//printf("*****Match Found*****\n\n");
+
+		//cout << currPrefix;
+		//cout << endl;
+	}
+
+	// All children struct node pointers are NULL
+	if (isLastNode(root))
+	{
+		//int len=strlen(currPrefix);
+		//currPrefix[len-1]='\0';
+		return;
+	}
+	int k = 0;
+	for (int i = 0; i < ALPHABET_SIZE; i++)
+	{
+		k = 0;
+		if (root->children[i])
+		{
+			// append current character to currPrefix string
+			//currPrefix.push_back(97 + i);
+			int p = 97 + i;
+			char c = (char)p;
+			strncat(currPrefix, &c, 1);
+
+			// recur over the rest
+			suggestionsRec(root->children[i], currPrefix);
+			int len = strlen(currPrefix);
+			currPrefix[len - 1] = '\0';
+		}
+	}
+}
+
+int printAutoSuggestions(TSTnode root, const char query[])
+{
+    TSTnode pCrawl = root;
+
+    // Check if prefix is present and find the
+    // the node (of last level) with last character
+    // of given string.
+    int level;
+    int n = strlen(query);
+    for (level = 0; level < n; level++)
+    {
+        int index = CHAR_TO_INDEX(query[level]);
+
+        // no string in the Trie has this prefix
+        if (!pCrawl->children[index])
+            return 0;
+
+        pCrawl = pCrawl->children[index];
+    }
+
+    // If prefix is present as a word.
+    bool isWord = (pCrawl->fimDaPalavra == 1);
+
+    // If prefix is last node of tree (has no
+    // children)
+    bool isLast = isLastNode(pCrawl);
+
+    // If prefix is present as a word, but
+    // there is no subtree below the last
+    // matching node.
+    if (isWord && isLast)
+    {
+        printf("\n \n");
+        puts(query);
+        printf("*****Match Found*****\n\n");
+        return -1;
+    }
+
+    // If there are are nodes below last
+    // matching character.
+    if (!isLast)
+    {
+        char prefix[30];
+        strcpy(prefix, query);
+        printf("\n\nMatch Found With Auto Complete:-\n");
+        suggestionsRec(pCrawl, prefix);
+        return 1;
+    }
+    return 1;
+}
