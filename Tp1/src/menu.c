@@ -20,18 +20,34 @@ void menu()
             printf("Digite a quantidade de arquivos:\n");
             scanf("%d", &qtd);
             leArquivo(qtd, 0, teste);
-            break;
-        case 2:
             print_menu2();
-            scanf("%d", &escolha[2]);
+            scanf("%d", &escolha[1]);
+        case 2:
+            // print_menu2();
+            // scanf("%d", &escolha[2]);
             break;
         case 3:
 
         case 4:
             print_menu2();
-            scanf("%d", &escolha[0]);
+            scanf("%d", &escolha[1]);
             break;
-        case 7:
+        default:
+            break;
+        }
+
+        switch (escolha[1])
+        {
+        case 1:
+            // Imprime palavra TST
+            break;
+        case 2:
+            //Busca uma plv
+            break;
+        case 3:
+            // GTK
+            break;
+        case 4:
             scanf("%s",termo);
             N=qtd;
             dj=pesquisa(termo,teste,1);
@@ -95,7 +111,7 @@ void print_menu2()
     {
         fputs(" ", stdout);
     }
-    printf("5 - Imprimir as palavras da TST  6 - Buscar por uma palavra na PATRICIA  7 - Abrir o GTK  8 - Sair");
+    printf("1 - Imprimir as palavras da TST  2 - Buscar por uma palavra na PATRICIA  3 - Abrir o GTK  4 - Sair");
     for (i = 0; i < 9; i++)
     {
         fputs(" ", stdout);
