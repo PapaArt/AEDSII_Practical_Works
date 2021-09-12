@@ -1,4 +1,5 @@
 #include "patricia.h"
+typedef struct Node* TSTnode;
 
 struct Node
 {
@@ -7,11 +8,13 @@ struct Node
 	// True if this character is last character of one of the words
 	unsigned fimDaPalavra : 1;
 
-	struct Node *esq, *eq, *dir;
+	TSTnode esq, eq, dir;
 };
 
-struct Node *novoNo(char data);
-void insert(struct Node **raiz, char *word);
-void traverseTSTUtil(struct Node *raiz, char *buffer, int depth);
-void traverseTST(struct Node *raiz);
-int pesquisaTST(struct Node *raiz, char *word);
+TSTnode novoNo(char data);
+void insert(TSTnode *raiz, char *word);
+void traverseTSTUtil(TSTnode raiz, char *buffer, int depth);
+void traverseTST(TSTnode raiz);
+int pesquisaTST(TSTnode raiz, char *word);
+void insereDicio(TSTnode*raiz, char *word, int choice);
+void imprimeTST(TSTnode raiz);

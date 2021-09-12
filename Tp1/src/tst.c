@@ -1,8 +1,8 @@
 #include "tst.h"
 
-struct Node *novoNo(char data)
+TSTnode novoNo(char data)
 {
-    struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
+    TSTnode temp = (TSTnode)malloc(sizeof(struct Node));
     temp->data = data;
     temp->fimDaPalavra = 0;
     temp->esq = temp->eq = temp->dir = NULL;
@@ -10,7 +10,7 @@ struct Node *novoNo(char data)
 }
 
 // Function to insert a new word in a Ternary Search Tree
-void insert(struct Node **raiz, char *word)
+void insert(TSTnode *raiz, char *word)
 {
     // Base Case: Tree is empty
     if (!(*raiz))
@@ -39,7 +39,7 @@ void insert(struct Node **raiz, char *word)
 }
 
 // A recursive function to traverse Ternary Search Tree
-void traverseTSTUtil(struct Node *raiz, char *buffer, int depth)
+void traverseTSTUtil(TSTnode raiz, char *buffer, int depth)
 {
     if (raiz)
     {
@@ -64,14 +64,14 @@ void traverseTSTUtil(struct Node *raiz, char *buffer, int depth)
 
 // The main function to traverse a Ternary Search Tree.
 // It mainly uses traverseTSTUtil()
-void traverseTST(struct Node *raiz)
+void traverseTST(TSTnode raiz)
 {
     char buffer[MAX];
     traverseTSTUtil(raiz, buffer, 0);
 }
 
 // Function to search a given word in TST
-int pesquisaTST(struct Node *raiz, char *word)
+int pesquisaTST(TSTnode raiz, char *word)
 {
     if (!raiz)
         return 0;
@@ -81,7 +81,6 @@ int pesquisaTST(struct Node *raiz, char *word)
 
     else if (*word > (raiz)->data)
         return pesquisaTST(raiz->dir, word);
-
     else
     {
         if (*(word + 1) == '\0')
@@ -92,9 +91,8 @@ int pesquisaTST(struct Node *raiz, char *word)
 }
 
 // Driver program to test above functions
-int main()
+void insereDicio(TSTnode *raiz, char *word, int choice)
 {
-    struct Node *raiz = NULL;
     FILE *archive;
     char line[MAX];
     char *result;
@@ -114,12 +112,48 @@ int main()
                 }
                 line[k] = tolower(line[k]);
             }
-            printf("%s", line);
-            insert(&raiz, line);
+            //printf("%s", line);
+            insert((raiz), line);
         }
     }
+    if (choice == 1)
+    {
+        pesquisaTST((*raiz), word) ? printf("\nFound\n") : printf("\nNot Found\n");
+    }
 
-    pesquisaTST(raiz, "vacilo\n") ? printf("\nFound\n") : printf("\nNot Found\n");
     fclose(archive);
-    return 0;
+}
+
+void imprimeTST(TSTnode raiz)
+{
+    if (!raiz)
+        printf("A arvore esta vazia.\n");
+    if (raiz->esq != NULL)
+    {
+        printf("%c", raiz->data);
+        // if (raiz->fimDaPalavra == 0)
+        // {
+        imprimeTST(raiz->esq);
+        // }
+    }
+    if (raiz->eq != NULL)
+    {
+        printf("%c", raiz->data);
+        // if (raiz->fimDaPalavra == 0)
+        // {
+        imprimeTST(raiz->eq);
+        // }
+    }
+    if (raiz->dir != NULL)
+    {
+        printf("%c", raiz->data);
+        // if (raiz->fimDaPalavra == 0)
+        // {
+        imprimeTST(raiz->dir);
+        // }
+    }
+    else
+    {
+        printf("%c", raiz->data);
+    }
 }

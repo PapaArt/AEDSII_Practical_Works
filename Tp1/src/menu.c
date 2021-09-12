@@ -4,60 +4,85 @@ void menu()
 {
     int escolha[3];
     int qtd;
-    int resultadowij,fji,N,dj;
+    int resultadowij, fji, N, dj;
     char str[MAX];
     char *mat[MAX];
     char *plv;
     char *termo;
+    char buffer[MAX];
+    char buscaDicio[100];
+    char espaco[] = "\n";
+    int choice = 0;
     tipoArvore teste = NULL;
-    LOOP:
-        print_menu1();
-        scanf("%d", &escolha[0]);
-    
-        switch (escolha[0])
+    TSTnode TSTraiz = NULL;
+LOOP:
+    print_menu1();
+    scanf("%d", &escolha[0]);
+
+    switch (escolha[0])
+    {
+    case 1:
+        printf("Digite a quantidade de arquivos:\n");
+        scanf("%d", &qtd);
+        leArquivo(qtd, 0, &teste);
+        print_menu2();
+        scanf("%d", &escolha[1]);
+    case 2:
+        // Inserir palavras do dicionario (TST - FEITO)
+        printf("DESEJA VERIFICAR A DISPONIBILIDADE DE ALGUMA PALAVRA?\nSE SIM DIGITE 1, CASO CONTRARIO DIGITE 0:\n");
+        scanf("%d", &choice);
+        if (choice == 1 || choice == 0)
         {
-        case 1:
-            printf("Digite a quantidade de arquivos:\n");
-            scanf("%d", &qtd);
-            leArquivo(qtd, 0, &teste);
-            print_menu2();
-            scanf("%d", &escolha[1]);
-        case 2:
-            // Inserir palavras do dicionario (TST - FEITO)
-            break;
-        case 3:
-            // Imprimir o indice invertido (PATRICIA - NAO FEITO)
-            break;
-        case 4:
-            print_menu2();
-            scanf("%d", &escolha[1]);
-            break;
-        default:
-            break;
+            if (choice == 1)
+            {
+                printf("Digite a palavra a ser buscada: \n");
+                scanf("%s", buscaDicio);
+                strcat(strcpy(buffer, buscaDicio), espaco);
+                insereDicio(&TSTraiz,buffer, choice);
+            }
+            if(choice == 0){
+                insereDicio(&TSTraiz,buffer, choice);
+            }
+        }else{
+            printf("Digite um numero valido.\n");
         }
 
-        switch (escolha[1])
-        {
-        case 1:
-            // Imprime palavra TST (TST - NAO FEITO)
-            break;
-        case 2:
-            //Busca uma plv (PATRICIA - NAO FEITO)
-            break;
-        case 3:
-            // GTK (AMBOS - NAO FEITO)
-            break;
-        case 4: // FORMULAS
-            printf("Digite o termo para consulta: ");
-            scanf("%s",termo);
-            N=qtd;
-            dj = pesquisa(termo,teste,1);
-            fji = pesquisa(termo,teste,2);
-            printf("%d",dj);
-            break;
-        default:
-            break;
-        }
+        goto LOOP;
+        break;
+    case 3:
+        // Imprimir o indice invertido (PATRICIA - NAO FEITO)
+        break;
+    case 4:
+        print_menu2();
+        scanf("%d", &escolha[1]);
+        break;
+    default:
+        break;
+    }
+
+    switch (escolha[1])
+    {
+    case 1:
+        // Imprime palavra TST (TST - NAO FEITO)
+        imprimeTST(TSTraiz);
+        break;
+    case 2:
+        //Busca uma plv (PATRICIA - NAO FEITO)
+        break;
+    case 3:
+        // GTK (AMBOS - NAO FEITO)
+        break;
+    case 4: // FORMULAS
+        printf("Digite o termo para consulta: ");
+        scanf("%s", termo);
+        N = qtd;
+        dj = pesquisa(termo, teste, 1);
+        fji = pesquisa(termo, teste, 2);
+        printf("%d", dj);
+        break;
+    default:
+        break;
+    }
 }
 
 void print_menu2()
