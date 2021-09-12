@@ -91,7 +91,7 @@ int pesquisaTST(struct Node *raiz, char *word)
 }
 
 // Driver program to test above functions
-void insereDicio(char *word)
+void insereDicio(char *word, int choice)
 {
     struct Node *raiz = NULL;
     FILE *archive;
@@ -113,11 +113,14 @@ void insereDicio(char *word)
                 }
                 line[k] = tolower(line[k]);
             }
-            printf("%s", line);
+            //printf("%s", line);
             insert(&raiz, line);
         }
     }
+    if (choice == 1)
+    {
+        pesquisaTST(raiz, word) ? printf("\nFound\n") : printf("\nNot Found\n");
+    }
 
-    pesquisaTST(raiz, word) ? printf("\nFound\n") : printf("\nNot Found\n");
     fclose(archive);
 }

@@ -12,6 +12,7 @@ void menu()
     char buffer[MAX];
     char buscaDicio[100];
     char espaco[] = "\n";
+    int choice = 0;
     tipoArvore teste = NULL;
 LOOP:
     print_menu1();
@@ -27,10 +28,24 @@ LOOP:
         scanf("%d", &escolha[1]);
     case 2:
         // Inserir palavras do dicionario (TST - FEITO)
-        printf("Insira a palavra que deseja buscar no dicionário: ");
-        scanf("%s", buscaDicio);
-        strcat(strcpy(buffer, buscaDicio), espaco);
-        insereDicio(buffer);
+        printf("DESEJA VERIFICAR A DISPONIBILIDADE DE ALGUMA PALAVRA?\nSE SIM DIGITE 1, CASO CONTRARIO DIGITE 0:\n");
+        scanf("%d", &choice);
+        if (choice == 1 || choice == 0)
+        {
+            if (choice == 1)
+            {
+                printf("Digite a palavra a ser buscada: \n");
+                scanf("%s", buscaDicio);
+                strcat(strcpy(buffer, buscaDicio), espaco);
+                insereDicio(buffer, choice);
+            }
+            if(choice == 0){
+                insereDicio(buffer, choice);
+            }
+        }else{
+            printf("Digite um numero valido.\n");
+        }
+
         goto LOOP;
         break;
     case 3:
