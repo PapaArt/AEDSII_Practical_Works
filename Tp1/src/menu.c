@@ -4,34 +4,43 @@ void menu()
 {
     int escolha[3];
     int qtd;
+    int resultadowij,fji,N,dj;
     char str[MAX];
     char *mat[MAX];
     char *plv;
+    char *termo;
     tipoArvore teste = NULL;
+    LOOP:
+        print_menu1();
+        scanf("%d", &escolha[0]);
+    
+        switch (escolha[0])
+        {
+        case 1:
+            printf("Digite a quantidade de arquivos:\n");
+            scanf("%d", &qtd);
+            leArquivo(qtd, 0, teste);
+            break;
+        case 2:
+            print_menu2();
+            scanf("%d", &escolha[2]);
+            break;
+        case 3:
 
-    print_menu1();
-    scanf("%d", &escolha[0]);
-
-    switch (escolha[0])
-    {
-    case 1:
-        printf("Digite a quantidade de arquivos:\n");
-        scanf("%d", &qtd);
-        leArquivo(qtd, 0, teste);
-        break;
-    case 2:
-        print_menu2();
-        scanf("%d", &escolha[2]);
-        break;
-    case 3:
-
-    case 4:
-        print_menu2();
-        scanf("%d", &escolha[1]);
-        break;
-    default:
-        break;
-    }
+        case 4:
+            print_menu2();
+            scanf("%d", &escolha[0]);
+            break;
+        case 7:
+            scanf("%s",termo);
+            N=qtd;
+            dj=pesquisa(termo,teste,1);
+            fji = pesquisa(termo,teste,2);
+            printf("%d",dj);
+            break;
+        default:
+            break;
+        }
 }
 
 void print_menu2()
