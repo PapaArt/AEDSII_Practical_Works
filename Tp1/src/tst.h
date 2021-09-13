@@ -17,4 +17,4 @@ void traverseTSTUtil(TSTnode raiz, char *buffer, int depth);
 void traverseTST(TSTnode raiz);
 int pesquisaTST(TSTnode raiz, char *word);
 void insereDicio(TSTnode*raiz, char *word, int choice);
-void imprimeTST(TSTnode raiz);
+

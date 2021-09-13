@@ -123,37 +123,3 @@ void insereDicio(TSTnode *raiz, char *word, int choice)
 
     fclose(archive);
 }
-
-void imprimeTST(TSTnode raiz)
-{
-    if (!raiz)
-        printf("A arvore esta vazia.\n");
-    if (raiz->esq != NULL)
-    {
-        printf("%c", raiz->data);
-        // if (raiz->fimDaPalavra == 0)
-        // {
-        imprimeTST(raiz->esq);
-        // }
-    }
-    if (raiz->eq != NULL)
-    {
-        printf("%c", raiz->data);
-        // if (raiz->fimDaPalavra == 0)
-        // {
-        imprimeTST(raiz->eq);
-        // }
-    }
-    if (raiz->dir != NULL)
-    {
-        printf("%c", raiz->data);
-        // if (raiz->fimDaPalavra == 0)
-        // {
-        imprimeTST(raiz->dir);
-        // }
-    }
-    else
-    {
-        printf("%c", raiz->data);
-    }
-}
