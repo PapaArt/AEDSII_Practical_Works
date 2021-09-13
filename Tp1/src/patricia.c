@@ -55,6 +55,7 @@ int pesquisa(tipoChave k, tipoArvore t)
     int qtdarquivo = 0;
     if (EExterno(t))
     {
+        printf("Comp: %s %s\n", k, t->NO.chave);
         if (!strcmp(k, t->NO.chave))
         {
             printf("Elemento encontrado\n");
@@ -65,12 +66,12 @@ int pesquisa(tipoChave k, tipoArvore t)
     }
     if (k[t->NO.NInterno.indice] <= t->NO.NInterno.desvio)
     {
-        printf("%c", t->NO.NInterno.desvio);
+        printf("%c %c\n", k[t->NO.NInterno.indice], t->NO.NInterno.desvio);
         pesquisa(k, t->NO.NInterno.esq);
     }
     else
     {
-        printf("%c", t->NO.NInterno.desvio);
+        printf("%c %c\n", k[t->NO.NInterno.indice], t->NO.NInterno.desvio);
         pesquisa(k, t->NO.NInterno.dir);
     }
 }
@@ -117,7 +118,8 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
             {
                 p = p->NO.NInterno.dir;
             }
-            else{
+            else
+            {
                 p = p->NO.NInterno.esq;
             }
         }

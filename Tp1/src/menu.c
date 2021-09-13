@@ -33,37 +33,15 @@ LOOP:
     switch (escolha[0])
     {
     case 1:
-        printf("Digite a quantidade de arquivos:\n");
-        scanf("%d", &qtd);
-        leArquivo(qtd, 0, &teste);
         print_menu2();
         scanf("%d", &escolha[1]);
+        break;
     case 2:
         // Inserir palavras do dicionario (TST - FEITO)
         while (fscanf(file, "%s", word) != EOF)
         {                        //Read words into variable "word"
             insert(&trie, word); //insert words into trie
         }
-        // // printf("DESEJA VERIFICAR A DISPONIBILIDADE DE ALGUMA PALAVRA?\nSE SIM DIGITE 1, CASO CONTRARIO DIGITE 0:\n");
-        // // scanf("%d", &choice);
-        // // if (choice == 1 || choice == 0)
-        // // {
-        // //     if (choice == 1)
-        // //     {
-        // //         printf("Digite a palavra a ser buscada: \n");
-        // //         scanf("%s", buscaDicio);
-        // //         strcat(strcpy(buffer, buscaDicio), espaco);
-        // //         insereDicio(&TSTraiz, buffer, choice);
-        // //     }
-        // //     if (choice == 0)
-        // //     {
-        // //         insereDicio(&TSTraiz, buffer, choice);
-        // //     }
-        // // }
-        // else
-        // {
-        //     printf("Digite um numero valido.\n");
-        // }
 
         goto LOOP;
         break;
@@ -112,12 +90,14 @@ LOOP:
         }
         break;
     case 4: // FORMULAS
+        printf("Digite a quantidade de arquivos:\n");
+        scanf("%d", &qtd);
         leArquivo(qtd, 0, &teste);
         printf("Digite o termo para consulta: ");
         scanf("%s", termo);
         printf("%s\n", termo);
         //N = qtd;
-        dj = pesquisa(termo, teste);
+        //dj = pesquisa(termo, teste);
         //fji = pesquisa(termo, teste);
         //printf("%d", dj);
         break;

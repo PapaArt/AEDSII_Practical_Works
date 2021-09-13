@@ -1,3 +1,25 @@
 Fazer a ordenação correta da PATRICIA no momento da inserção
 
 Criar o contador para palavras repetidas (pode ser usado um id para identificar cada palavra)
+
+case 2 -> escolha[0]
+// // printf("DESEJA VERIFICAR A DISPONIBILIDADE DE ALGUMA PALAVRA?\nSE SIM DIGITE 1, CASO CONTRARIO DIGITE 0:\n");
+        // // scanf("%d", &choice);
+        // // if (choice == 1 || choice == 0)
+        // // {
+        // //     if (choice == 1)
+        // //     {
+        // //         printf("Digite a palavra a ser buscada: \n");
+        // //         scanf("%s", buscaDicio);
+        // //         strcat(strcpy(buffer, buscaDicio), espaco);
+        // //         insereDicio(&TSTraiz, buffer, choice);
+        // //     }
+        // //     if (choice == 0)
+        // //     {
+        // //         insereDicio(&TSTraiz, buffer, choice);
+        // //     }
+        // // }
+        // else
+        // {
+        //     printf("Digite um numero valido.\n");
+        // }
