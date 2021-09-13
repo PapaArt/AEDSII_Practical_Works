@@ -42,10 +42,8 @@ void leArquivo(int qtd, int contArq, tipoArvore *teste)
         char linha[MAX], linha2[MAX];
         char *result;
         char *Str;
-
         sprintf(nomeArq, "../data/arquivo%d.txt", i);
         arquivo = fopen(nomeArq, "rt");
-
         if (arquivo != NULL)
         {
             while (!feof(arquivo))
@@ -53,7 +51,7 @@ void leArquivo(int qtd, int contArq, tipoArvore *teste)
                 // Lê uma linha (inclusive com o '\n')
                 fscanf(arquivo, "%s", linha);
                 for (int k = 0; k <= strlen(linha); k++)
-                {
+                {   
                     if (ispunct(linha[k]))
                     {
                         linha[k] = linha[k + 1];
@@ -63,13 +61,13 @@ void leArquivo(int qtd, int contArq, tipoArvore *teste)
                 while (Str != NULL)
                 {
                     Str[0] = tolower(Str[0]);
-                    *teste = insere(Str, teste, i);
+                    *teste = insere(Str, teste);
                     Str = strtok(NULL, " ");
                 }
             }
             fclose(arquivo);
             contArq++;
-            //printf("Arquivo lido!!!\n");
+            printf("Arquivo lido!!!\n");
         }
         else
         {

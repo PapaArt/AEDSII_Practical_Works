@@ -34,17 +34,17 @@ tipoArvore CriaNoInt(int i, tipoArvore *esq, tipoArvore *dir, char d)
     p->NO.NInterno.esq = *esq;
     p->NO.NInterno.dir = *dir;
     p->NO.NInterno.indice = i;
-    printf("%d", i);
+    //printf("indice: %d\n", i);
     p->NO.NInterno.desvio = d;
     return p;
 }
 
 tipoArvore
-CriaNoExt(tipoChave k, int nArquivo)
+CriaNoExt(tipoChave k)
 {
     tipoArvore p;
     p = (tipoArvore)malloc(sizeof(tipoPatNo));
-    p->conta[nArquivo - 1] = 1;
+    //p->conta[nArquivo - 1] = 1;
     p->nt = externo;
     p->NO.chave = k;
     return p;
@@ -75,9 +75,10 @@ int pesquisa(tipoChave k, tipoArvore t)
         }
         else
             printf("Elemento nao encontrado\n");
+        return 0;
     }
     printf("Entrei\n");
-    printf("%d %c", t->NO.NInterno.indice, t->NO.NInterno.desvio);
+    //printf("%d %c", t->NO.NInterno.indice, t->NO.NInterno.desvio);
     if (k[t->NO.NInterno.indice] <= t->NO.NInterno.desvio)
     {
         printf("%c", t->NO.NInterno.desvio);
@@ -88,16 +89,15 @@ int pesquisa(tipoChave k, tipoArvore t)
         printf("%c", t->NO.NInterno.desvio);
         pesquisa(k, t->NO.NInterno.dir);
     }
-    return 0;
 }
 
-tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i, char d, int nArquivo)
+tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i, char d)
 {
     tipoArvore p;
     int dif;
     if (EExterno(*t))
     {
-        p = CriaNoExt(k, nArquivo);
+        p = CriaNoExt(k);
         if (k[i] >= (*t)->NO.chave[i])
             return (CriaNoInt(i, t, &p, d));
         else
@@ -106,20 +106,22 @@ tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i, char d, int nArquivo)
     else
     {
         if (k[(*t)->NO.NInterno.indice] > (*t)->NO.NInterno.desvio)
-            (*t)->NO.NInterno.dir = insereEntre(k, &(*t)->NO.NInterno.dir, i, d, nArquivo);
+            (*t)->NO.NInterno.dir = insereEntre(k, &(*t)->NO.NInterno.dir, i, d);
         else
-            (*t)->NO.NInterno.esq = insereEntre(k, &(*t)->NO.NInterno.esq, i, d, nArquivo);
+            (*t)->NO.NInterno.esq = insereEntre(k, &(*t)->NO.NInterno.esq, i, d);
         return (*t);
     }
 }
 
-tipoArvore insere(tipoChave k, tipoArvore *t, int nArquivo)
+tipoArvore insere(tipoChave k, tipoArvore *t)
 {
     tipoArvore p;
     int i;
     char d;
     if (*t == NULL)
-        return (CriaNoExt(k, nArquivo));
+    {
+        return (CriaNoExt(k));
+    }
     else
     {
         p = *t;
@@ -128,15 +130,18 @@ tipoArvore insere(tipoChave k, tipoArvore *t, int nArquivo)
             //printf("%s %c\n", k, p->NO.NInterno.desvio);
             // Posicao do NInterno
             if (k[p->NO.NInterno.indice] > p->NO.NInterno.desvio)
+            {
                 p = p->NO.NInterno.dir;
-            else
+            }
+            else{
                 p = p->NO.NInterno.esq;
+            }
         }
         //printf("%s %s\n", k, p->NO.chave);
         i = strcmp(k, p->NO.chave);
         if (i == 0)
         {
-            p->conta[nArquivo - 1] += 1;
+            //p->conta[nArquivo - 1] += 1;
             return (*t);
         }
         else
@@ -146,7 +151,7 @@ tipoArvore insere(tipoChave k, tipoArvore *t, int nArquivo)
                 d = k[i];
             else
                 d = p->NO.chave[i];
-            return (insereEntre(k, t, i, d, nArquivo));
+            return (insereEntre(k, t, i, d));
         }
     }
 }
