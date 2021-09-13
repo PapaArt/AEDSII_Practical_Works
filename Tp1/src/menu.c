@@ -9,12 +9,17 @@ void menu()
     char *mat[MAX];
     char *plv;
     char *termo;
+    char searchForWord[WORD_SIZE];
     char buffer[MAX];
+    char word[WORD_SIZE];
     char buscaDicio[100];
     char espaco[] = "\n";
     int choice = 0;
     tipoArvore teste = NULL;
-    TSTnode TSTraiz = NULL;
+    trie_t trie;       //Instantiate new Trie ADT
+    initialize(&trie); //Initialize the Trie
+    FILE *file = fopen("../data/palavras.txt", "r");
+
 LOOP:
     print_menu1();
     scanf("%d", &escolha[0]);
@@ -29,23 +34,30 @@ LOOP:
         scanf("%d", &escolha[1]);
     case 2:
         // Inserir palavras do dicionario (TST - FEITO)
-        printf("DESEJA VERIFICAR A DISPONIBILIDADE DE ALGUMA PALAVRA?\nSE SIM DIGITE 1, CASO CONTRARIO DIGITE 0:\n");
-        scanf("%d", &choice);
-        if (choice == 1 || choice == 0)
-        {
-            if (choice == 1)
-            {
-                printf("Digite a palavra a ser buscada: \n");
-                scanf("%s", buscaDicio);
-                strcat(strcpy(buffer, buscaDicio), espaco);
-                insereDicio(&TSTraiz,buffer, choice);
-            }
-            if(choice == 0){
-                insereDicio(&TSTraiz,buffer, choice);
-            }
-        }else{
-            printf("Digite um numero valido.\n");
+        while (fscanf(file, "%s", word) != EOF)
+        {                        //Read words into variable "word"
+            insert(&trie, word); //insert words into trie
         }
+        // // printf("DESEJA VERIFICAR A DISPONIBILIDADE DE ALGUMA PALAVRA?\nSE SIM DIGITE 1, CASO CONTRARIO DIGITE 0:\n");
+        // // scanf("%d", &choice);
+        // // if (choice == 1 || choice == 0)
+        // // {
+        // //     if (choice == 1)
+        // //     {
+        // //         printf("Digite a palavra a ser buscada: \n");
+        // //         scanf("%s", buscaDicio);
+        // //         strcat(strcpy(buffer, buscaDicio), espaco);
+        // //         insereDicio(&TSTraiz, buffer, choice);
+        // //     }
+        // //     if (choice == 0)
+        // //     {
+        // //         insereDicio(&TSTraiz, buffer, choice);
+        // //     }
+        // // }
+        // else
+        // {
+        //     printf("Digite um numero valido.\n");
+        // }
 
         goto LOOP;
         break;
@@ -64,13 +76,34 @@ LOOP:
     {
     case 1:
         // Imprime palavra TST (TST - FEITO)
-        traverseTST(TSTraiz);
+        imprimeTST(trie);
         break;
     case 2:
         //Busca uma plv (PATRICIA - NAO FEITO)
         break;
     case 3:
         // GTK (AMBOS - NAO FEITO)
+        printf("ENTER A WORD TO SEARCH FOR: (CTRL-D to end)\n");
+
+        while (scanf("%s", searchForWord) != EOF)
+        { //Checks CTRL-D
+            int i;
+            int isValid = 1;
+            for (i = 0; i < strlen(searchForWord); i++)
+            {
+                //loop through word and check validity
+                char c = searchForWord[i];
+                if (!isalpha(c))
+                {                //if found any characters non-alpha
+                    isValid = 0; //invalid
+                }
+            }
+            if (!isValid)
+                printf("Invalid input! Letters only!\n");
+            if (isValid)
+                traverse(&trie, searchForWord); //word is valid:traverse
+            printf("ENTER A WORD TO SEARCH FOR: (CTRL-D to end)\n");
+        }
         break;
     case 4: // FORMULAS
         printf("Digite o termo para consulta: ");
@@ -83,6 +116,7 @@ LOOP:
     default:
         break;
     }
+    fclose(file);
 }
 
 void print_menu2()
