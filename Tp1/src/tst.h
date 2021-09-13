@@ -1,3 +1,9 @@
+//  TRABALHO PRÁTICO 1          //
+//  Grupo: Tree's é demais      //
+//     3859 - Jhonata Miranda   //
+//     3881 - Vinícius Mendes   // 
+//     3886 - Artur Papa        //
+
 #include "patricia.h"
 #define ALPHABET_SIZE (54) //54 alphabets: 26 for A-Z, 26 for a-z, 1 for apostrophe, 1 for /0 and other
 #define MAX 100
