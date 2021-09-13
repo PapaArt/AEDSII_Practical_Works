@@ -6,25 +6,24 @@
 
 #include "tst.h"
 #define WORD_SIZE 25
-////////////////////////////////////makeNode///////////////////////////////////////
-// Creates a new node,
-// sets all of the elements in the subArray "children" to NULL.
+// Cria um nó,
+// define todos os elementos do sub-vetor "children" para NULL.
 trie_node_t *makeNode(void)
 {
   trie_node_t *node = NULL;
-  node = (trie_node_t *)malloc(sizeof(trie_node_t)); //DynMemAlloc for the Trie ADT.
+  node = (trie_node_t *)malloc(sizeof(trie_node_t)); //Alocação dinâmica de memória para a TST.
   if (node)
-  { //If memory was allocated successfully...
+  { //Se a memória foi alocada com sucesso...
     int i;
     node->isWord = false;
     for (i = 0; i < ALPHABET_SIZE; i++)
-    { //Set all of the children to NULL.
+    { //Define todos os itens do sub-vetor como NULL.
       node->children[i] = NULL;
     }
   }
   return node;
 }
-/////////////////////////////////////intialize//////////////////////////////////////
+
 // Initiates a new ADT, with root being a new node and count being 0.
 // Root is a buffer node;
 // Count represents the level (height) of the tree.
