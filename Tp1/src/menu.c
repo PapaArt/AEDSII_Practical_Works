@@ -114,10 +114,10 @@ LOOP:
     case 4: // FORMULAS
         leArquivo(qtd, 0, &teste);
         printf("Digite o termo para consulta: ");
-        //scanf("%s", termo);
-        //printf("%s\n", termo);
-        N = qtd;
-        dj = pesquisa("quem", teste);
+        scanf("%s", termo);
+        printf("%s\n", termo);
+        //N = qtd;
+        dj = pesquisa(termo, teste);
         //fji = pesquisa(termo, teste);
         //printf("%d", dj);
         break;
