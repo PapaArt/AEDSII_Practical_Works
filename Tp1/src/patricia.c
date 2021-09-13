@@ -44,7 +44,7 @@ CriaNoExt(tipoChave k, int nArquivo)
 {
     tipoArvore p;
     p = (tipoArvore)malloc(sizeof(tipoPatNo));
-    p->conta[nArquivo - 1] = 1;
+    //p->conta[nArquivo - 1] = 1;
     p->nt = externo;
     p->NO.chave = k;
     return p;
@@ -55,29 +55,13 @@ int pesquisa(tipoChave k, tipoArvore t)
     int qtdarquivo = 0;
     if (EExterno(t))
     {
-        //printf("Palavra e indice invertido: %s <%d,%d>\n", t->NO.chave,t->conta[0],t->conta[1]);
         if (!strcmp(k, t->NO.chave))
         {
-            //printf("Palavra e indice invertido: %s <%d,%d>\n", t->NO.chave,t->conta[0],t->conta[1]);
             printf("Elemento encontrado\n");
-            // if (flag == 1)
-            // {
-            //     for (int i = 0; i < 10; i++)
-            //     {
-            //         if (t->conta[i] > 0)
-            //             qtdarquivo++;
-            //     }
-            //     return qtdarquivo;
-            // }
-            //     else if(flag == 2){
-            //         return
-            //     }
         }
         else
             printf("Elemento nao encontrado\n");
     }
-    printf("Entrei\n");
-    printf("%d %c", t->NO.NInterno.indice, t->NO.NInterno.desvio);
     if (k[t->NO.NInterno.indice] <= t->NO.NInterno.desvio)
     {
         printf("%c", t->NO.NInterno.desvio);
@@ -136,7 +120,7 @@ tipoArvore insere(tipoChave k, tipoArvore *t, int nArquivo)
         i = strcmp(k, p->NO.chave);
         if (i == 0)
         {
-            p->conta[nArquivo - 1] += 1;
+            //p->conta[nArquivo - 1] += 1;
             return (*t);
         }
         else
