@@ -47,7 +47,7 @@ typedef struct tipoPatNo
 tipoArvore CriaNoInt(int x, tipoArvore *esq, tipoArvore *dir, char d);
 tipoArvore CriaNoExt(tipoChave k,int nArquivo);
 short EExterno(tipoArvore p);
-int pesquisa(tipoChave k, tipoArvore t,int flag);
+int pesquisa(tipoChave k, tipoArvore t);
 tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i, char d, int nArquivo);
 tipoArvore insere(tipoChave k, tipoArvore *t,int nArquivo);
 int diferenca(tipoChave k, tipoChave r);

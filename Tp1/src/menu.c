@@ -14,7 +14,7 @@ void menu()
     char str[MAX];
     char *mat[MAX];
     char *plv;
-    char *termo;
+    char termo[MAX];
     char searchForWord[WORD_SIZE];
     char buffer[MAX];
     char word[WORD_SIZE];
@@ -112,12 +112,14 @@ LOOP:
         }
         break;
     case 4: // FORMULAS
+        leArquivo(qtd, 0, &teste);
         printf("Digite o termo para consulta: ");
-        scanf("%s", termo);
+        //scanf("%s", termo);
+        //printf("%s\n", termo);
         N = qtd;
-        dj = pesquisa(termo, teste, 1);
-        fji = pesquisa(termo, teste, 2);
-        printf("%d", dj);
+        dj = pesquisa("quem", teste);
+        //fji = pesquisa(termo, teste);
+        //printf("%d", dj);
         break;
     default:
         break;

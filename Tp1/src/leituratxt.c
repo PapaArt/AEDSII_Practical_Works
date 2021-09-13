@@ -15,7 +15,7 @@ void criaArquivos(int qtd, int contArq)
         char nomeArq[100];
 
         sprintf(nomeArq, "../data/arquivo%d.txt", i);
-
+        
         arquivo = fopen(nomeArq, "w");
 
         if (arquivo != NULL)
@@ -44,7 +44,6 @@ void leArquivo(int qtd, int contArq, tipoArvore *teste)
         char *Str;
 
         sprintf(nomeArq, "../data/arquivo%d.txt", i);
-
         arquivo = fopen(nomeArq, "rt");
 
         if (arquivo != NULL)
@@ -52,7 +51,7 @@ void leArquivo(int qtd, int contArq, tipoArvore *teste)
             while (!feof(arquivo))
             {
                 // Lê uma linha (inclusive com o '\n')
-                result = fgets(linha, MAX, arquivo);
+                fscanf(arquivo, "%s", linha);
                 for (int k = 0; k <= strlen(linha); k++)
                 {
                     if (ispunct(linha[k]))

@@ -2,7 +2,9 @@
     "files.associations": {
         "compressed.h": "c",
         "tadpat.h": "c",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "sstream": "c",
+        "regex": "c"
     },
     "editor.fontSize": 14
 }
