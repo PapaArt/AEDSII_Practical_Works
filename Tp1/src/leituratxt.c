@@ -51,4 +51,5 @@ void leArquivo(int qtd, int contArq, tipoArvore *teste)
             perror(nomeArq);
             exit(EXIT_FAILURE);
         }
+    }
 }

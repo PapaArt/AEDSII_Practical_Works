@@ -99,16 +99,7 @@ LOOP:
         }
         break;
     case 4: // FORMULAS
-        printf("Digite a quantidade de arquivos:\n");
-        scanf("%d", &qtd);
-        //leArquivo(qtd, 0, &teste);
-        printf("Digite o termo para consulta: ");
-        scanf("%s", termo);
-        printf("%s\n", termo);
-        //N = qtd;
-        //dj = pesquisa(termo, teste);
-        //fji = pesquisa(termo, teste);
-        //printf("%d", dj);
+        exit(1);
         break;
     default:
         break;
@@ -168,7 +159,7 @@ void print_menu2()
     {
         fputs(" ", stdout);
     }
-    printf("1 - Imprimir as palavras da TST  2 - Buscar por uma palavra na PATRICIA  3 - Abrir o GTK  4 - Sair");
+    printf("1 - Imprimir as palavras da TST  2 - Buscar por uma palavra na PATRICIA  3 - Autocomplete  4 - Sair");
     for (i = 0; i < 9; i++)
     {
         fputs(" ", stdout);
