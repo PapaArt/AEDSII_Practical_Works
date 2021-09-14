@@ -21,6 +21,7 @@ void menu()
     char buscaDicio[100];
     char espaco[] = "\n";
     int choice = 0;
+
     tipoArvore teste = NULL;
     trie_t trie;       //Instantiate new Trie ADT
     initialize(&trie); //Initialize the Trie
@@ -33,16 +34,20 @@ LOOP:
     switch (escolha[0])
     {
     case 1:
-        print_menu2();
-        scanf("%d", &escolha[1]);
+        //print_menu2();
+        //scanf("%d", &escolha[1]);
+        goto LOOP;
         break;
     case 2:
-        // Inserir palavras do dicionario (TST - FEITO)
         while (fscanf(file, "%s", word) != EOF)
         {                        //Read words into variable "word"
+            for (int i = 0; i < strlen[i]; i++)
+            {
+                word[i] = tolower(word[i]);
+            }
+            
             insert(&trie, word); //insert words into trie
         }
-
         goto LOOP;
         break;
     case 3:
@@ -66,7 +71,6 @@ LOOP:
         //Busca uma plv (PATRICIA - NAO FEITO)
         break;
     case 3:
-        // GTK (AMBOS - NAO FEITO)
         printf("ENTER A WORD TO SEARCH FOR: (CTRL-D to end)\n");
 
         while (scanf("%s", searchForWord) != EOF)
@@ -159,11 +163,8 @@ void print_menu2()
     {
         fputs(" ", stdout);
     }
-    printf("1 - Imprimir as palavras da TST  2 - Buscar por uma palavra na PATRICIA  3 - Abrir o GTK  4 - Sair");
-    for (i = 0; i < 9; i++)
-    {
-        fputs(" ", stdout);
-    }
+    printf("1 - Imprimir as palavras da TST  2 - Buscar por uma palavra na PATRICIA  3 - Autopreenchimento  4 - TF-IDF");
+    fputs(" ", stdout);
     printf("|");
 
     printf("\n|");
