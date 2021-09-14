@@ -24,56 +24,46 @@ trie_node_t *makeNode(void)
   return node;
 }
 
-// Initiates a new ADT, with root being a new node and count being 0.
-// Root is a buffer node;
-// Count represents the level (height) of the tree.
+//Inicia um novo nó, com a raiz sendo um novo nó e a contagem sendo 0.
+// Root é um nó de buffer;
+// A contagem representa o nível (altura) da árvore.
 void initialize(trie_t *pTrie)
 {
   pTrie->root = makeNode();
   pTrie->count = 0;
 }
 ///////////////////////////////////insert////////////////////////////////////////
-// Inserts each letter of a word into a trie
-// If the letter isnt contained in the trie, it creates a new node.
+// Insere cada letra de uma palavra em um teste
+// Se a letra não estiver contida no teste, ele cria um novo nó.
 void insert(trie_t *pTrie, char key[])
 {
   int level;
   int length = strlen(key);
   int index;
   char x;
-  trie_node_t *temp;  //New node temp to hold the ADT.
-  pTrie->count++;     //Increase the count of the trie since a word is being added.
-  temp = pTrie->root; //Set the temporary node to the pTrie root, in order to not modify the pTrie.
+  trie_node_t *temp;  //Novo nó.
+  pTrie->count++;     //Aumenta a contagem do teste, pois uma palavra está sendo adicionada.
+  temp = pTrie->root; //Defina o nó temporário para a raiz pTrie, a fim de não modificar o pTrie.
   for (level = 0; level < length; level++)
-  {                                    //For every letter in the key...
-    index = alphabetIndex(key[level]); //Convert that letter to a number (index).
-    x = key[level];                    //Save the letter for later.
+  {                                    //Para cada letra da chave
+    index = alphabetIndex(key[level]); //Converte essa letra em um número (índice).
+    x = key[level];                    //Guarde a carta para depois.
     if (!temp->children[index])
-    {                                     //If the character is a new letter...
-      temp->children[index] = makeNode(); //Make a new node at index.
-      temp->children[index]->letter = x;  //Set the node's letter to x.
+    {                                     //Se a posiçã do vetor é uma nova letra ...
+      temp->children[index] = makeNode(); //Faz um novo nó no índice.
+      temp->children[index]->letter = x;  //Define a letra do nó como x.
     }
-    temp = temp->children[index]; //Traverse to the next letter/index.
+    temp = temp->children[index]; //Passa para a próxima letra / índice.
   }
-  temp->isWord = true; //Mark last node as word.
-  /** The reason why marking the last node remains outside of the loop at the end, is
-  *   because after inserting all the letters/nodes into their indexes, the last letter
-  *   will always be garanteed to be a new leaf. even if you insert the same word twice.
-  *   The last letter will always be a leaf node.
-  **/
+  temp->isWord = true; //Marca o último nó como palavra.
 }
-////////////////////////////////////traverse///////////////////////////////////////
-// traverses a tree given a key
-// the function will traverse to the end letter of the key, where it will
-// then send a node to the autocomplete function and print out all the
-// subtries of that node.
 int traverse(trie_t *pTrie, char key[])
 {
   int level;
   int length = strlen(key);
   int index;
   trie_node_t *temp;
-  temp = pTrie->root; //once again, create a temporary node to hold the ADT Trie
+  temp = pTrie->root; 
   printf("TRAVERSING TRIE FOR %s\n", key);
   for (level = 0; level < length; level++)
   {                                    //From 0 to the end of the key...
