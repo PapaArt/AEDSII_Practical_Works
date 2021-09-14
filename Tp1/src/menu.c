@@ -76,7 +76,7 @@ LOOP:
         break;
     case 3:
         // GTK (AMBOS - NAO FEITO)
-        printf("ENTER A WORD TO SEARCH FOR: \n");
+        printf("Digite a palavra a ser buscada: \n");
 
         while (scanf("%s", searchForWord) != EOF)
         { //Checa CTRL-D
@@ -95,7 +95,7 @@ LOOP:
                 printf("Invalid input! Letters only!\n");
             if (isValid)
                 traverse(&trie, searchForWord); //palavra valida: imprime
-            printf("ENTER A WORD TO SEARCH FOR:\n");
+            printf("Digite a palavra a ser buscada: \n");
         }
         break;
     case 4: // FORMULAS
