@@ -25,6 +25,7 @@ void criaArquivos(tipoArvore *teste, char *nomeArq)
         for (int i = 0; i < strlen(linha); i++)
         {
             linha[i] = tolower(linha[i]);
+            if(ispunct(linha[i])) linha[i]=linha[i+1];
         }
         *teste = insere(linha, teste);
     }
@@ -54,8 +55,10 @@ void leArquivo(int qtd, int contArq, tipoArvore *teste)
             //linha[i] = strtok(NULL, " ");
             i++;
         }
-        *teste = insere(linha, teste);
-        printf("%s\n", linha);
+        for (int i = 0; i<strlen(linha);i++){
+            if(ispunct(linha[i])) linha[i]=linha[i+1];
+        }
+        (*teste) = insere(linha, teste);
     }
     contArq++;
     fclose(arquivo);

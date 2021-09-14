@@ -33,21 +33,21 @@ LOOP:
 
     switch (escolha[0])
     {
-    case 1:
-        //print_menu2();
-        //scanf("%d", &escolha[1]);
+    case 1:        
+        print_menu2();
+        scanf("%d", &escolha[1]);
         goto LOOP;
         break;
     case 2:
         while (fscanf(file, "%s", word) != EOF)
-        {                        //Read words into variable "word"
-            for (int i = 0; i < strlen[i]; i++)
+        {
+            for(int i=0;i<strlen(word);i++)
             {
-                word[i] = tolower(word[i]);
-            }
-            
+                word[i]=tolower(word[i]);
+            }                  //Read words into variable "word"
             insert(&trie, word); //insert words into trie
         }
+        printf("Dicionario inserido com sucesso\n");
         goto LOOP;
         break;
     case 3:
@@ -64,14 +64,14 @@ LOOP:
     switch (escolha[1])
     {
     case 1:
-        // Imprime palavra TST (TST - FEITO)
+        // Imprime palavra TST
         imprimeTST(trie);
         break;
     case 2:
-        //Busca uma plv (PATRICIA - NAO FEITO)
+        //Busca uma plv
         break;
     case 3:
-        printf("ENTER A WORD TO SEARCH FOR: (CTRL-D to end)\n");
+        printf("Digite a palavra a ser pesquisada:\n");
 
         while (scanf("%s", searchForWord) != EOF)
         { //Checks CTRL-D
@@ -87,24 +87,14 @@ LOOP:
                 }
             }
             if (!isValid)
-                printf("Invalid input! Letters only!\n");
+                printf("Entrada invalida, apenas letras\n");
             if (isValid)
                 traverse(&trie, searchForWord); //word is valid:traverse
-            printf("ENTER A WORD TO SEARCH FOR: (CTRL-D to end)\n");
+            printf("Digite a palavra a ser pesquisada:\n");
         }
         break;
     case 4: // FORMULAS
-        printf("Digite a quantidade de arquivos:\n");
-        scanf("%d", &qtd);
-        //leArquivo(qtd, 0, &teste);
-        printf("Digite o termo para consulta: ");
-        scanf("%s", termo);
-        printf("%s\n", termo);
-        //N = qtd;
-        //dj = pesquisa(termo, teste);
-        //fji = pesquisa(termo, teste);
-        //printf("%d", dj);
-        break;
+        exit(1);
     default:
         break;
     }
@@ -163,7 +153,7 @@ void print_menu2()
     {
         fputs(" ", stdout);
     }
-    printf("1 - Imprimir as palavras da TST  2 - Buscar por uma palavra na PATRICIA  3 - Autopreenchimento  4 - TF-IDF");
+    printf("1 - Imprimir as palavras da TST  2 - Buscar por uma palavra na PATRICIA  3 - Autopreenchimento  4 - Sair");
     fputs(" ", stdout);
     printf("|");
 

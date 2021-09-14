@@ -34,8 +34,8 @@ tipoArvore CriaNoInt(int i, tipoArvore *esq, tipoArvore *dir, char d)
     p->NO.NInterno.esq = *esq;
     p->NO.NInterno.dir = *dir;
     p->NO.NInterno.indice = i;
-    //printf("indice: %d\n", i);
     p->NO.NInterno.desvio = d;
+    printf("desvio: %c\n", d);
     return p;
 }
 
@@ -105,15 +105,15 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
     char d;
     if (*t == NULL)
     {
-        printf("Chave: %s\n", k);
         return (CriaNoExt(k));
     }
     else
     {
         p = *t;
+        printf("p.no.chave: %s %s\n",p->NO.chave, k);
         while (!EExterno(p))
         {
-            //printf("%s %c\n", k, p->NO.NInterno.desvio);
+            printf("%s %c\n", k, p->NO.NInterno.desvio);
             // Posicao do NInterno
             if (k[p->NO.NInterno.indice] > p->NO.NInterno.desvio)
             {
