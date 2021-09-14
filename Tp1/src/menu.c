@@ -15,6 +15,7 @@ void menu()
     char *mat[MAX];
     char *plv;
     char termo[MAX];
+    char busca[MAX];
     char searchForWord[WORD_SIZE];
     char buffer[MAX];
     char word[WORD_SIZE];
@@ -22,8 +23,8 @@ void menu()
     char espaco[] = "\n";
     int choice = 0;
     tipoArvore teste = NULL;
-    trie_t trie;       //Instantiate new Trie ADT
-    initialize(&trie); //Initialize the Trie
+    trie_t trie;       //Declara nova  Trie ADT
+    initialize(&trie); //Inicializa a Trie
     FILE *file = fopen("../data/palavras.txt", "r");
 
 LOOP:
@@ -33,6 +34,9 @@ LOOP:
     switch (escolha[0])
     {
     case 1:
+        printf("Digite a quantidade de arquivos:\n");
+        scanf("%d", &qtd);
+        leArquivo(qtd, 0, &teste);
         print_menu2();
         scanf("%d", &escolha[1]);
         break;
@@ -42,8 +46,8 @@ LOOP:
         {
             for(int i=0;i<strlen(word);i++){
                 word[i]=tolower(word[i]);
-            }                  //Read words into variable "word"
-            insert(&trie, word); //insert words into trie
+            }                  //Ler palavras para dentro da variavel "word"
+            insert(&trie, word); //inserir palavra na trie
         }
         goto LOOP;
         break;
@@ -66,29 +70,32 @@ LOOP:
         break;
     case 2:
         //Busca uma plv (PATRICIA - NAO FEITO)
+        printf("Digite a palavra a ser buscada:");
+        scanf("%s",busca);
+        pesquisa("quem",teste);
         break;
     case 3:
         // GTK (AMBOS - NAO FEITO)
-        printf("ENTER A WORD TO SEARCH FOR: (CTRL-D to end)\n");
+        printf("ENTER A WORD TO SEARCH FOR: \n");
 
         while (scanf("%s", searchForWord) != EOF)
-        { //Checks CTRL-D
+        { //Checa CTRL-D
             int i;
             int isValid = 1;
             for (i = 0; i < strlen(searchForWord); i++)
             {
-                //loop through word and check validity
+                //loop pela palavra e checar a validade
                 char c = searchForWord[i];
                 if (!isalpha(c))
-                {                //if found any characters non-alpha
-                    isValid = 0; //invalid
+                {                //if encontra algum caractere fora do alfabeto
+                    isValid = 0; //invalida
                 }
             }
             if (!isValid)
                 printf("Invalid input! Letters only!\n");
             if (isValid)
-                traverse(&trie, searchForWord); //word is valid:traverse
-            printf("ENTER A WORD TO SEARCH FOR: (CTRL-D to end)\n");
+                traverse(&trie, searchForWord); //palavra valida: imprime
+            printf("ENTER A WORD TO SEARCH FOR:\n");
         }
         break;
     case 4: // FORMULAS
