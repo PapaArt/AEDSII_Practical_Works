@@ -8,8 +8,6 @@
 #define LEITURATXT_H
 #include "patricia.h"
 
-void learqv(char *palavra, int qtd);
-void criaArquivos(tipoArvore *teste, char *nomeArq);
 void leArquivo(int qtd, int contArq, tipoArvore *teste);
 
 #endif

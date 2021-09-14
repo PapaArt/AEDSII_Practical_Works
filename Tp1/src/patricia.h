@@ -16,7 +16,6 @@
 #define PATRICIA_H
 
 typedef unsigned char *tipoChave;
-// typedef unsigned char tipoChave2[MAX];
 typedef unsigned int tipoIndexAmp;
 typedef unsigned char tipoDib;
 
@@ -47,7 +46,7 @@ typedef struct tipoPatNo
 tipoArvore CriaNoInt(int x, tipoArvore *esq, tipoArvore *dir, char d);
 tipoArvore CriaNoExt(tipoChave k);
 short EExterno(tipoArvore p);
-int pesquisa(tipoChave k, tipoArvore t);
+void pesquisa(tipoChave k, tipoArvore t);
 tipoArvore insereEntre(tipoChave k, tipoArvore *t, int i, char d);
 tipoArvore insere(tipoChave k, tipoArvore *t);
 int diferenca(tipoChave k, tipoChave r);
