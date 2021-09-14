@@ -8,7 +8,6 @@
 
 int diferenca(tipoChave k, tipoChave r)
 {
-    // Exemplo 'quem' e 'que'
     int count = 0;
     while (k[count] != '\0' || r[count] != '\0')
     {
@@ -27,6 +26,7 @@ short EExterno(tipoArvore p)
 
 tipoArvore CriaNoInt(int i, tipoArvore *esq, tipoArvore *dir, char d)
 {
+    printf("%c\n", d);
     tipoArvore p;
     p = (tipoArvore)malloc(sizeof(tipoPatNo));
     p->conta[0] = 0;
@@ -105,6 +105,7 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
     char d;
     if (*t == NULL)
     {
+        printf("Chave: %s\n", k);
         return (CriaNoExt(k));
     }
     else

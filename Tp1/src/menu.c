@@ -92,7 +92,7 @@ LOOP:
     case 4: // FORMULAS
         printf("Digite a quantidade de arquivos:\n");
         scanf("%d", &qtd);
-        leArquivo(qtd, 0, &teste);
+        //leArquivo(qtd, 0, &teste);
         printf("Digite o termo para consulta: ");
         scanf("%s", termo);
         printf("%s\n", termo);
