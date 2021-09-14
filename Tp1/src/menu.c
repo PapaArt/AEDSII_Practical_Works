@@ -39,10 +39,12 @@ LOOP:
     case 2:
         // Inserir palavras do dicionario (TST - FEITO)
         while (fscanf(file, "%s", word) != EOF)
-        {                        //Read words into variable "word"
+        {
+            for(int i=0;i<strlen(word);i++){
+                word[i]=tolower(word[i]);
+            }                  //Read words into variable "word"
             insert(&trie, word); //insert words into trie
         }
-
         goto LOOP;
         break;
     case 3:

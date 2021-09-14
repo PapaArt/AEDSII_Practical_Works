@@ -18,6 +18,7 @@
   "C_Cpp_Runner.warningsAsError": false,
   "files.associations": {
     "patricia.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "leituratxt.h": "c"
   }
 }
