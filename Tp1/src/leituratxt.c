@@ -6,76 +6,61 @@
 
 #include "leituratxt.h"
 
-void criaArquivos(int qtd, int contArq)
+void criaArquivos(tipoArvore *teste, char *nomeArq)
 {
 
-    for (int i = 1; i <= qtd; i++)
+    FILE *arquivo;
+    char linha[MAX];
+
+    arquivo = fopen(nomeArq, "r");
+
+    if (arquivo == NULL)
     {
-        FILE *arquivo;
-        char nomeArq[100];
-
-        sprintf(nomeArq, "../data/arquivo%d.txt", i);
-
-        arquivo = fopen(nomeArq, "w");
-
-        if (arquivo != NULL)
-        {
-            fclose(arquivo);
-            printf("Arquivo criado!!!\n");
-            contArq++;
-        }
-        else
-        {
-            perror(nomeArq);
-            exit(EXIT_FAILURE);
-        }
+        perror(nomeArq);
+        exit(EXIT_FAILURE);
     }
+    while (!feof(arquivo))
+    {
+        fscanf(arquivo, "%s", linha);
+        for (int i = 0; i < strlen(linha); i++)
+        {
+            linha[i] = tolower(linha[i]);
+            if(ispunct(linha[i])) linha[i]=linha[i+1];
+        }
+        *teste = insere(linha, teste);
+    }
+    fclose(arquivo);
 }
 
 void leArquivo(int qtd, int contArq, tipoArvore *teste)
 {
 
-    for (int i = 1; i <= qtd; i++)
+    FILE *arquivo;
+    char nomeArq[100];
+    char linha[MAX], linha2[MAX];
+    char *result;
+    char *Str;
+    int i = 0;
+
+    //sprintf(nomeArq, "../data/arquivo%d.txt", i);
+
+    arquivo = fopen("../data/arquivo1.txt", "rt");
+    while (!feof(arquivo))
     {
-        FILE *arquivo;
-        char nomeArq[100];
-        char linha[MAX], linha2[MAX];
-        char *result;
-        char *Str;
-
-        sprintf(nomeArq, "../data/arquivo%d.txt", i);
-
-        arquivo = fopen(nomeArq, "rt");
-
-        if (arquivo != NULL)
+        // Lê uma linha (inclusive com o '\n')
+        fscanf(arquivo, "%s", linha);
+        while (linha != NULL)
         {
-            while (!feof(arquivo))
-            {
-                // Lê uma linha (inclusive com o '\n')
-                result = fgets(linha, MAX, arquivo);
-                for (int k = 0; k <= strlen(linha); k++)
-                {
-                    if (ispunct(linha[k]))
-                    {
-                        linha[k] = linha[k + 1];
-                    }
-                }
-                Str = strtok(linha, " ");
-                while (Str != NULL)
-                {
-                    Str[0] = tolower(Str[0]);
-                    *teste = insere(Str, teste);
-                    Str = strtok(NULL, " ");
-                }
-            }
-            fclose(arquivo);
-            contArq++;
-            //printf("Arquivo lido!!!\n");
+            linha[i] = tolower(linha[i]);
+            //linha[i] = strtok(NULL, " ");
+            i++;
         }
-        else
-        {
-            perror(nomeArq);
-            exit(EXIT_FAILURE);
+        for (int i = 0; i<strlen(linha);i++){
+            if(ispunct(linha[i])) linha[i]=linha[i+1];
         }
+        (*teste) = insere(linha, teste);
     }
+    contArq++;
+    fclose(arquivo);
+    printf("Arquivo lido!!!\n");
 }

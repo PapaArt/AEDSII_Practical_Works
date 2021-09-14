@@ -178,7 +178,8 @@ void imprimeTST(trie_t pTrie)
     else
     {
       searchForWord[0] = (int)(caractere);
-      if (searchForWord[0] > 90 || searchForWord[0] < 65)
+      searchForWord[0] = tolower(searchForWord[0]);
+      if (searchForWord[0] > 122 || searchForWord[0] < 97)
       {
         break;
       }

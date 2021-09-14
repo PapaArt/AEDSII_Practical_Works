@@ -8,7 +8,6 @@
 
 int diferenca(tipoChave k, tipoChave r)
 {
-    // Exemplo 'quem' e 'que'
     int count = 0;
     while (k[count] != '\0' || r[count] != '\0')
     {
@@ -27,6 +26,7 @@ short EExterno(tipoArvore p)
 
 tipoArvore CriaNoInt(int i, tipoArvore *esq, tipoArvore *dir, char d)
 {
+    printf("%c\n", d);
     tipoArvore p;
     p = (tipoArvore)malloc(sizeof(tipoPatNo));
     p->conta[0] = 0;
@@ -34,8 +34,8 @@ tipoArvore CriaNoInt(int i, tipoArvore *esq, tipoArvore *dir, char d)
     p->NO.NInterno.esq = *esq;
     p->NO.NInterno.dir = *dir;
     p->NO.NInterno.indice = i;
-    //printf("indice: %d\n", i);
     p->NO.NInterno.desvio = d;
+    printf("desvio: %c\n", d);
     return p;
 }
 
@@ -110,9 +110,10 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
     else
     {
         p = *t;
+        printf("p.no.chave: %s %s\n",p->NO.chave, k);
         while (!EExterno(p))
         {
-            //printf("%s %c\n", k, p->NO.NInterno.desvio);
+            printf("%s %c\n", k, p->NO.NInterno.desvio);
             // Posicao do NInterno
             if (k[p->NO.NInterno.indice] > p->NO.NInterno.desvio)
             {
