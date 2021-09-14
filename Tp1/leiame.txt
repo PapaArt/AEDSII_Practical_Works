@@ -9,18 +9,32 @@ ESTRUTURA DO TRABALHO
 ├── Makefile        # arquivo para compilação
 |  
 
+EXECUÇÃO DO PROJETO
+
+make && ./main
+
 FUNCIONAMENTO DO MENU 
 
-1)Escolha ente PATRICIA e TST
+1) Construção do indice invertido:
+    Insere as palavras dos arquivos na árvore PATRICIA
 
-2)Após a escolha anterior, a execução será com base no TAD escolhido, 
-sendo necessário executar novamente o código caso queira utilizar outra opção
+2) Inserir palavras do dicionário:
+    Insere o dicionário na TST
 
-3) O menu conta com 5 opções dentre as quais são: (1) Inserir palavra, (2) Ler 
-arquivo já previamente selecionado pelo grupo, (3) Pesquisar palavra, (4) Imprimir
-em ordem alfabética e (5) Mostrar Estatísticas que são tempo de execução, numero 
-de comparações e uso de memória. Basta digitar o numero da opção desejada e apertar
-'enter'
+3) Imprimir o indice:
+    Imprime o indice invertido
 
-4) Caso queira parar a execução basta digitar um numero diferente das opções do Menu
-(1 a 5) que o programa será encerrado.
+4) Outro:
+    Apresenta as outras opções do menu
+
+5) Imprimir as palavras da TST:
+    Imprime as palavras do dicionário em ordem alfabética
+
+6) Buscar por uma palavra na PATRICIA:
+    Busca por uma palavra do arquivo na PATRICIA
+
+7) Autopreenchimento:
+    Usa o autopreenchimento da TST. Entrada inválida finaliza o programa.
+
+8) Sair:
+    Finaliza o programa

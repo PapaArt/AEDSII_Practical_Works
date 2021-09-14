@@ -36,9 +36,9 @@ LOOP:
     case 1:
         printf("Digite a quantidade de arquivos:\n");
         scanf("%d", &qtd);
+        printf("Lista de palavras inseridas:\n");
         leArquivo(qtd, 0, &teste);
-        print_menu2();
-        scanf("%d", &escolha[1]);
+        goto LOOP;
         break;
     case 2:
         // Inserir palavras do dicionario (TST - FEITO)
@@ -49,10 +49,11 @@ LOOP:
             }                  //Ler palavras para dentro da variavel "word"
             insert(&trie, word); //inserir palavra na trie
         }
+        printf("Dicionario inserido com sucesso!!!\n");
         goto LOOP;
         break;
     case 3:
-        // Imprimir o indice invertido (PATRICIA - NAO FEITO)
+        goto LOOP;
         break;
     case 4:
         print_menu2();
@@ -64,22 +65,22 @@ LOOP:
 
     switch (escolha[1])
     {
-    case 1:
-        // Imprime palavra TST (TST - FEITO)
+    case 5:
+        // Imprime palavra TST
         imprimeTST(trie);
         break;
-    case 2:
-        //Busca uma plv (PATRICIA - NAO FEITO)
+    case 6:
+        //Busca uma palavra 
         printf("Digite a palavra a ser buscada:");
         scanf("%s",busca);
-        pesquisa("quem",teste);
+        pesquisa(busca,teste);
         break;
-    case 3:
-        // GTK (AMBOS - NAO FEITO)
+    case 7:
+        // Autopreenchimento
         printf("Digite a palavra a ser buscada: \n");
 
         while (scanf("%s", searchForWord) != EOF)
-        { //Checa CTRL-D
+        { 
             int i;
             int isValid = 1;
             for (i = 0; i < strlen(searchForWord); i++)
@@ -92,13 +93,14 @@ LOOP:
                 }
             }
             if (!isValid)
-                printf("Invalid input! Letters only!\n");
+                printf("Entrada invalida!\n");
+                break;
             if (isValid)
                 traverse(&trie, searchForWord); //palavra valida: imprime
             printf("Digite a palavra a ser buscada: \n");
         }
         break;
-    case 4: // FORMULAS
+    case 8: // SAIR
         exit(1);
         break;
     default:
@@ -159,8 +161,8 @@ void print_menu2()
     {
         fputs(" ", stdout);
     }
-    printf("1 - Imprimir as palavras da TST  2 - Buscar por uma palavra na PATRICIA  3 - Autocomplete  4 - Sair");
-    for (i = 0; i < 9; i++)
+    printf("5 - Imprimir as palavras da TST  6 - Buscar por uma palavra na PATRICIA  7 - Autopreenchimento  8 - Sair");
+    for (i = 0; i < 3; i++)
     {
         fputs(" ", stdout);
     }

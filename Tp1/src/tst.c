@@ -70,13 +70,13 @@ int traverse(trie_t *pTrie, char key[])
   int index;
   trie_node_t *temp;
   temp = pTrie->root; 
-  printf("TRAVERSING TRIE FOR %s\n", key);
+  printf("Completando a palavra... %s\n", key);
   for (level = 0; level < length; level++)
   {                                    //De 0 ao fim da chave ...
     index = alphabetIndex(key[level]); //Pegua a letra i e transforme-a em um índice.
     if (!temp->children[index])
     { //Se o índice do vetor for NULL, obviamente a palavra não foi encontrada
-      printf("WORD NOT FOUND!\n");
+      printf("Palavra nao encontrada!\n");
       return 0; 
     }
     temp = temp->children[index]; //Continua avançando até o nó encontrado.

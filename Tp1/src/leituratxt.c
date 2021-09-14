@@ -26,8 +26,7 @@ void leArquivo(int qtd, int contArq, tipoArvore *teste)
             while (!feof(arquivo))
             {
                 // Lê uma linha (inclusive com o '\n')
-                fflush(arquivo);
-                result = fgets(linha, MAX, arquivo);
+                fscanf(arquivo,"%s", linha);
                 for (int k = 0; k <= strlen(linha); k++)
                 {
                     if (ispunct(linha[k]))
@@ -39,6 +38,7 @@ void leArquivo(int qtd, int contArq, tipoArvore *teste)
                 while (Str != NULL)
                 {
                     Str[0] = tolower(Str[0]);
+                    printf("%s\n", Str);
                     (*teste) = insere(Str, teste);
                     Str = strtok(NULL, " ");
                 }
