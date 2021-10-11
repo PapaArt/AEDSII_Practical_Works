@@ -110,6 +110,7 @@ tipoArvore insere(tipoChave k, tipoArvore *t)
             else
                 p = p->NO.NInterno.esq;
         }
+        //printf("%s %s\n", k, p->NO.chave);
         i = strcmp(k, p->NO.chave);
         if (i == 0)
         {

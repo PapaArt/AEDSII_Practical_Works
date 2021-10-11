@@ -92,9 +92,10 @@ LOOP:
                     isValid = 0; //invalida
                 }
             }
-            if (!isValid)
+            if (!isValid){
                 printf("Entrada invalida!\n");
                 break;
+            }
             if (isValid)
                 traverse(&trie, searchForWord); //palavra valida: imprime
             printf("Digite a palavra a ser buscada: \n");
